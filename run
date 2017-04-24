@@ -1,0 +1,22 @@
+#!/bin/bash
+
+docker stop $(docker ps -q)
+
+docker kill ignite
+docker rm ignite
+
+docker build -t ignite .
+
+if [ -z "$APP_ENV" ]; then
+    APP_ENV="prod"
+fi
+
+if [ $APP_ENV == "dev" ]; then
+    docker run --name ignite -p 0.0.0.0:80:80 \
+        -v /Users/matthewdavies/Sites/ignite-your-brand/:/var/www/html \
+        ignite
+else
+    docker run -d --name ignite -p 0.0.0.0:80:80 \
+        -v /home/ubuntu/ignite/:/var/www/html \
+        ignite
+fi

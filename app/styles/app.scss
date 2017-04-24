@@ -1,0 +1,148 @@
+@import 'bootstrap';
+
+// layout
+
+header {
+    background-color: $teal;
+}
+
+b, strong {
+    font-weight: $font-weight-bold;
+}
+
+.no-wrap {
+    white-space: nowrap;
+}
+
+.clickable {
+
+    &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+}
+
+.text-lg {
+    font-size: $font-size-lg;
+}
+
+.text-white {
+
+    & > .clickable,
+    & > a {
+        color: $white;
+
+        &:visited,
+        &:active,
+        &:focus {
+            color: $white;
+        }
+
+        &:hover {
+            color: $white;
+            opacity: .8;
+        }
+    }
+}
+
+.blockquote {
+    border-width: 0;
+
+    .blockquote-footer {
+        color: inherit;
+
+        &::before {
+            content: none;
+        }
+    }
+
+    .profile-img {
+        width: 100px;
+        height: 100px;
+        float: left;
+        border-radius: 50%;
+        margin-right: $spacer;
+    }
+}
+
+
+button {
+    cursor: pointer;
+}
+
+.btn-outline-secondary {
+
+    &:hover {
+        color: $gray-dark;
+    }
+}
+
+.img-fluid {
+    min-width: 100%;
+}
+
+// components
+
+// pages
+
+.home {
+
+    .full-height {
+        height: 600px;
+        height: 100vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        [class*="display"] {
+            margin-top: 20%;
+            margin-top: 20vh;
+        }
+    }
+
+    .introduction {
+        background-color: $teal;
+
+        .blockquote {
+            margin-top: 20%;
+            margin-top: 20vh;
+        }
+    }
+
+    .tourism {
+        background-color: $red;
+    }
+
+    .property {
+        background-color: $green;
+    }
+
+    .startup {
+        background-color: $gray-dark;
+    }
+}
+
+.work {
+
+    .container {
+        margin-top: 100px;
+    }
+
+    .col {
+        background-color: $blue;
+
+        &:nth-child(odd) {
+            background-color: $pink;
+        }
+
+        &:hover {
+            cursor: pointer;
+            opacity: .8;
+        }
+    }
+
+    .case-study {
+        width: 100%;
+        height: 300px;
+    }
+}
