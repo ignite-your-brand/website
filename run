@@ -16,7 +16,7 @@ if [ $APP_ENV == "dev" ]; then
         -v /Users/matthewdavies/Sites/ignite-your-brand/:/var/www/html \
         ignite
 else
-    docker run --name ignite -p 0.0.0.0:80:80 \
+    docker run -d --name ignite -p 0.0.0.0:80:80 \
         -v /home/ubuntu/ignite/:/var/www/html \
         ignite
 fi
