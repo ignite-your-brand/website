@@ -3,7 +3,7 @@
 // layout
 
 header {
-    background-color: $teal;
+    background-color: rgba($gray-dark, .8);
 }
 
 b, strong {
@@ -70,6 +70,12 @@ button {
     cursor: pointer;
 }
 
+hr {
+    display: inline-block;
+    border-top: 3px solid $orange;
+    width: 40px;
+}
+
 .btn-outline-secondary {
 
     &:hover {
@@ -79,6 +85,18 @@ button {
 
 .img-fluid {
     min-width: 100%;
+}
+
+.background-transparent {
+    background-color: rgba($black,.8);
+    color: $white;
+    display: inline-block;
+    padding: $spacer*2 $spacer*4;
+}
+
+.mt-20 {
+    margin-top: 20%;
+    margin-top: 20vh;
 }
 
 // components
@@ -93,15 +111,13 @@ button {
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-
-        [class*="display"] {
-            margin-top: 20%;
-            margin-top: 20vh;
-        }
     }
 
     .introduction {
-        background-color: $teal;
+        background-color: $gray-dark;
+        background-image: url("../assets/IYB-logo.png");
+        background-repeat: no-repeat;
+        background-position: right -350px top 250px;
 
         .blockquote {
             margin-top: 20%;
@@ -109,16 +125,31 @@ button {
         }
     }
 
+    .iyb-logo {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+
+    .background-image {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
     .tourism {
-        background-color: $red;
+        background-image: url("../assets/home-0001.jpg");
+        @extend .background-image;
     }
 
     .property {
-        background-color: $green;
+        background-image: url("../assets/home-0002.jpg");
+        @extend .background-image;
     }
 
     .startup {
-        background-color: $gray-dark;
+        background-image: url("../assets/home-0003.jpg");
+        @extend .background-image;
     }
 }
 
