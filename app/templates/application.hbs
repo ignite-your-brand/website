@@ -1,10 +1,10 @@
 <header class="fixed-top">
-    <div class="container py-3">
+    <div class="container-fluid py-3">
         <div class="row justify-content-center">
             <div class="col col-sm-10">
                 <p class="text-right text-white mb-0">+44 (0)131 467 7787 |
-                    <a href="mailto:hello@igniteyourbrand.co.uk">hello@igniteyourbrand.co.uk</a>  |
-                    <span {{action 'triggerLiveChat'}} class="clickable">live chat</span></p>
+                    <span class="hidden-xs-down"><a href="mailto:hello@igniteyourbrand.co.uk">hello@igniteyourbrand.co.uk</a> |</span>
+                    <span data-id="1123239adf" class="livechat_button"><a href="https://www.livechatinc.com/?partner=lc_8819936&amp;utm_source=chat_button">live chat</a></span></p>
             </div>
         </div>
     </div>
@@ -12,9 +12,9 @@
 <main class="{{routing.currentRouteName}}">
     {{outlet}}
 </main>
-<footer class="container py-5">
+<footer class="container-fluid py-5">
     <div class="row justify-content-end">
-        <div class="col-6 col-sm-3 d-flex justify-content-end">
+        <div class="col-5 d-flex justify-content-end">
             <div>
                 <h6>Office</h6>
                 <p>44 Constitution Street<br>
@@ -23,7 +23,7 @@
                     Scotland</p>
             </div>
         </div>
-        <div class="col-6 col-sm-4">
+        <div class="col-7 col-sm-6 col-md-5 col-lg-4">
             <h6>Contact</h6>
             <p>+44 (0)131 467 7787<br>
                 <a href="mailto:hello@igniteyourbrand.co.uk">hello@igniteyourbrand.co.uk</a></p>

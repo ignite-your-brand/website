@@ -28,8 +28,8 @@ b, strong {
 
 .text-white {
 
-    & > .clickable,
-    & > a {
+    & .clickable,
+    & a {
         color: $white;
 
         &:visited,
@@ -43,6 +43,22 @@ b, strong {
             opacity: .8;
         }
     }
+}
+
+.text-orange {
+    color: $orange;
+}
+
+.text-blue {
+    color: $blue;
+}
+
+.text-yellow {
+    color: $yellow;
+}
+
+.text-pink {
+    color: $pink;
 }
 
 .blockquote {
@@ -66,14 +82,31 @@ b, strong {
 }
 
 
-button {
-    cursor: pointer;
+.btn {
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 hr {
     display: inline-block;
-    border-top: 3px solid $orange;
+    border-top-width: 3px;
+    border-top-style: solid;
+    border-top-color: $white;
     width: 40px;
+
+    &.orange {
+        border-top-color: $orange;
+    }
+    &.blue {
+        border-top-color: $blue;
+    }
+    &.yellow {
+        border-top-color: $yellow;
+    }
+    &.pink {
+        border-top-color: $pink;
+    }
 }
 
 .btn-outline-secondary {
@@ -88,11 +121,22 @@ hr {
 }
 
 .background-transparent {
-    background-color: rgba($black,.8);
+    background-color: rgba($gray-dark,.8);
     color: $white;
     display: inline-block;
-    padding: $spacer*2 $spacer*4;
+    padding: $spacer*4;
 }
+
+.mt-10 {
+    margin-top: 10%;
+    margin-top: 10vh;
+}
+
+.mt-15 {
+    margin-top: 15%;
+    margin-top: 15vh;
+}
+
 
 .mt-20 {
     margin-top: 20%;
@@ -129,6 +173,10 @@ hr {
         position: absolute;
         bottom: 0;
         right: 0;
+    }
+
+    .method-description {
+        min-height: 75px;
     }
 
     .background-image {
