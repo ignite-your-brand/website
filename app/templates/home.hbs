@@ -1,60 +1,118 @@
 <div class="introduction">
-    <div class="container-fluid text-white">
-        <div class="row justify-content-center">
-            <div class="col col-sm-10 full-height">
-                <h1 class="logo display-3 mt-20"><strong>ignite</strong> <span class="no-wrap">your brand</span></h1>
+    <div class="container text-white">
+        <div class="row">
+            <div class="col full-height text-xs-center p-relative">
+                <h1 class="logo display-3 mt-20"><strong>ignite</strong> <span class="no-wrap">your brand</span><sup>&reg;</sup></h1>
                 <h2 class="my-5">we inspire and grow ambitious brands</h2>
-                <button {{action 'triggerShowReel'}} class="btn btn-secondary">watch show reel</button>
-                <div class="d-flex justify-content-end">
-                    <blockquote class="blockquote col-6">
-                        <img src="/assets/doug.jpg" class="profile-img">
-                        <p class="mb-1">I set out to raise £60,000 and with Ignite Your Brand's help I raised £165,000</p>
-                        <footer class="blockquote-footer mb-3">Douglas Stewart, Hebridean Food Company</footer>
-                        <button class="btn btn-sm btn-outline-secondary">read the story</button>
-                    </blockquote>
-                </div>
+                <button {{action 'triggerShowReel'}} class="btn btn-outline-primary mb-3 fade-in-1">get a feel for our work</button>
+                <button {{action 'triggerContactForm'}} class="btn btn-outline-secondary mb-3 fade-in-2">speak to a human</button>
+                <blockquote class="blockquote col-9 col-md-6 col-lg-5 hidden-xs-down">
+                    <img src="/assets/doug.jpg" class="profile-img">
+                    <p class="mb-1">I set out to raise £60,000 and with Ignite Your Brand's help I raised £165,000</p>
+                    <footer class="blockquote-footer mb-3">Douglas Stewart, Hebridean Food Company</footer>
+                    <button class="btn btn-sm btn-outline-secondary fade-in-3">read the story</button>
+                </blockquote>
+                <video class="iyb-logo-video" autoplay>
+                    <source src="/assets/IYB-logo.mp4" type="video/mp4">
+                </video>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col col-sm-10 full-height">
-                <h3 class="display-4 mt-15">Our Method</h3>
-                <hr>
-                <p class="text-lg">A simple, systematic way to grow your business</p>
-                <div class="row mt-15">
-                    <div class="col-6 col-lg-3">
+        <div class="row">
+            <div class="col full-height">
+                <div class="row justify-content-center">
+                    <div class="col-10 col-sm-12">
+                        <h3 class="display-4 mt-15">Our Method</h3>
+                        <hr>
+                        <p class="text-lg">A simple, systematic way to grow your business</p>
+                    </div>
+                </div>
+                {{#slide-in-wrapper}}
+                <div class="row justify-content-center mt-15">
+                    <div class="col-10 col-sm-6 col-lg-3 mb-5 method-1">
                         <h3><span class="text-blue">1.</span> Understand</h3>
                         <hr class="blue">
-                        <p class="method-description text-muted">Brand strategy, competitor analysis and customer research</p>
-                        <p class="method-description">We discover your point of difference and use that to guide everything we do</p>
+                        <p class="method-description text-muted">branding &amp; analysis</p>
+                        <p class="method-description">Discover your point of difference and use that as a guide</p>
                     </div>
-                    <div class="col-6 col-lg-3">
+                    <div class="col-10 col-sm-6 col-lg-3 mb-5 method-2">
                         <h3><span class="text-pink">2.</span> Build</h3>
                         <hr class="pink">
-                        <p class="method-description text-muted">Graphic design, printed comms and digital development</p>
-                        <p class="method-description">We build the things you need to communicate to your customers</p>
+                        <p class="method-description text-muted">design &amp; development</p>
+                        <p class="method-description">Build the things you need to communicate to your customers</p>
                     </div>
-                    <div class="col-6 col-lg-3">
+                    <div class="col-10 col-sm-6 col-lg-3 mb-5 method-3">
                         <h3><span class="text-yellow">3.</span> Strategise</h3>
                         <hr class="yellow">
-                        <p class="method-description text-muted">Marketing strategy, growth hacking and campaign analysis</p>
-                        <p class="method-description">We create an actionable, measureable plan to grow your business</p>
+                        <p class="method-description text-muted">strategy &amp; planning</p>
+                        <p class="method-description">Create an actionable, measureable plan for growth</p>
                     </div>
-                    <div class="col-6 col-lg-3">
+                    <div class="col-10 col-sm-6 col-lg-3 mb-5 method-4">
                         <h3><span class="text-orange">4.</span> Measure</h3>
                         <hr class="orange">
-                        <p class="method-description text-muted">Advertising, social media and search marketing</p>
-                        <p class="method-description">We put the plan into action and run campaigns that get results</p>
+                        <p class="method-description text-muted">advertising &amp; marketing</p>
+                        <p class="method-description">Put the plan into action and run a campaign that get results</p>
                     </div>
+                </div>
+                {{/slide-in-wrapper}}
+            </div>
+        </div>
+    </div>
+</div>
+{{#slide-in-wrapper}}
+<div class="travel full-height">
+    <div class="container">
+        <div class="row">
+            <div class="col-7">
+                <div class="exo-travel full-height">
+                    <img class="img-full-height exo-travel-image" src="/assets/exo-travel-mask.png">
+                </div>
+            </div>
+            <div class="col-5 text-white d-flex align-items-center">
+                <div>
+                    <h4 class="display-4">EXO Travel</h4>
+                    <hr>
+                    <p class="text-lg">Building a brand to better reflect core values and<br>
+                        help a pioneering company grow rapidly in a competitive marketplace</p>
+                    <button class="btn btn-outline-secondary">read the story</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="tourism full-height">
-    <div class="container-fluid">
+{{/slide-in-wrapper}}
+{{#slide-in-wrapper}}
+<div class="startup full-height">
+    <div class="container">
         <div class="row">
-            <div class="col">
-                <div class="background-transparent mt-20">
+            <div class="col-5 text-white d-flex align-items-center">
+                <div>
+                    <h4 class="display-4">Landbase</h4>
+                    <hr>
+                    <p class="text-lg">Thorough brand strategy and creative work to create a unique position<br>
+                        for prestigious shopping centres within China's major cities</p>
+                    <button class="btn btn-outline-secondary">read the story</button>
+                </div>
+            </div>
+            <div class="col-7">
+                <div class="full-height">
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/slide-in-wrapper}}
+{{#slide-in-wrapper}}
+<div class="property full-height">
+    <div class="container">
+        <div class="row">
+            <div class="col-7">
+                <div class="full-height">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="col-5 text-white d-flex align-items-center">
+                <div>
                     <h4 class="display-4">Grant Property</h4>
                     <hr>
                     <p class="text-lg">Using a unique branding process to creating a comprehensive<br>
@@ -65,34 +123,4 @@
         </div>
     </div>
 </div>
-<div class="property full-height">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col d-flex justify-content-end">
-                <div class="background-transparent mt-20 text-right">
-                    <h3 class="display-4">Landbase</h3>
-                    <hr>
-                    <p class="text-lg">Thorough brand strategy and creative work to create a unique position<br>
-                        for prestigious shopping centres within China's major cities</p>
-                    <button class="btn btn-outline-secondary">read the story</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="startup full-height">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col">
-                <div class="background-transparent mt-20">
-                    <h3 class="display-4">EXO Travel</h3>
-                    <hr>
-                    <p class="text-lg">Building a brand to better reflect core values and<br>
-                        help a pioneering company grow rapidly in a competitive marketplace</p>
-                    <button class="btn btn-outline-secondary">read the story</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<img src="/assets/home-0004.jpg" class="img-fluid">
+{{/slide-in-wrapper}}

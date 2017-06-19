@@ -2,12 +2,24 @@
 
 // layout
 
+$transparent-black: rgba($black, .8);
+
 header {
-    background-color: rgba($gray-dark, .8);
+    background-color: $transparent-black;
+}
+
+footer {
+    background-color: $black;
 }
 
 b, strong {
     font-weight: $font-weight-bold;
+}
+
+sup {
+    top: -2em;
+    right: -.3em;
+    font-size: 32%;
 }
 
 .no-wrap {
@@ -24,6 +36,16 @@ b, strong {
 
 .text-lg {
     font-size: $font-size-lg;
+}
+
+@include media-breakpoint-down(xs) {
+    .display-3 {
+        font-size: $display3-size - 1;
+    }
+
+    .text-xs-center {
+        text-align: center !important;
+    }
 }
 
 .text-white {
@@ -81,6 +103,32 @@ b, strong {
     }
 }
 
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade-in-1, .fade-in-2, .fade-in-3 {
+    animation: fade-in 1s ease-in-out;
+    animation-fill-mode: backwards;
+}
+
+.fade-in-1 {
+    animation-delay: .2s;
+}
+
+.fade-in-2 {
+    animation-delay: .4s;
+}
+
+.fade-in-3 {
+    animation-delay: .6s;
+}
 
 .btn {
     &:hover {
@@ -98,12 +146,15 @@ hr {
     &.orange {
         border-top-color: $orange;
     }
+
     &.blue {
         border-top-color: $blue;
     }
+
     &.yellow {
         border-top-color: $yellow;
     }
+
     &.pink {
         border-top-color: $pink;
     }
@@ -120,11 +171,8 @@ hr {
     min-width: 100%;
 }
 
-.background-transparent {
-    background-color: rgba($gray-dark,.8);
-    color: $white;
-    display: inline-block;
-    padding: $spacer*4;
+.img-full-height {
+    height: 100%;
 }
 
 .mt-10 {
@@ -137,10 +185,13 @@ hr {
     margin-top: 15vh;
 }
 
-
 .mt-20 {
     margin-top: 20%;
     margin-top: 20vh;
+}
+
+.p-relative {
+    position: relative;
 }
 
 // components
@@ -152,16 +203,15 @@ hr {
     .full-height {
         height: 600px;
         height: 100vh;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
     }
 
     .introduction {
-        background-color: $gray-dark;
-        background-image: url("../assets/IYB-logo.png");
-        background-repeat: no-repeat;
-        background-position: right -350px top 250px;
+        background-color: $black;
+
+        h1, h2, h3, p, hr, button, .blockquote {
+            z-index: $zindex-popover;
+            position: relative;
+        }
 
         .blockquote {
             margin-top: 20%;
@@ -169,35 +219,72 @@ hr {
         }
     }
 
-    .iyb-logo {
+    .iyb-logo-video {
         position: absolute;
-        bottom: 0;
-        right: 0;
+        bottom: -150px;
+        right: -900px;
+        z-index: $zindex-sticky;
     }
 
-    .method-description {
-        min-height: 75px;
+    .travel {
+        background-color: $black;
     }
 
-    .background-image {
+    .exo-travel {
+        overflow: hidden;
+        background-image: url('/assets/home-0003.jpg');
+        background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: center;
-    }
-
-    .tourism {
-        background-image: url("../assets/home-0001.jpg");
-        @extend .background-image;
-    }
-
-    .property {
-        background-image: url("../assets/home-0002.jpg");
-        @extend .background-image;
+        background-attachment: fixed;
     }
 
     .startup {
-        background-image: url("../assets/home-0003.jpg");
-        @extend .background-image;
+        background-color: $black;
+    }
+
+    .property {
+        background-color: $black;
+    }
+
+    .below-the-fold {
+
+        .method-1, .method-2, .method-3, .method-4 {
+            opacity: 0;
+        }
+
+        .exo-travel-image {
+            transform: translateX(-100px);
+            transition: transform 2s;
+        }
+    }
+
+    .above-the-fold {
+
+        .method-1, .method-2, .method-3, .method-4 {
+            animation: fade-in 1s ease-in-out;
+            animation-fill-mode: backwards;
+        }
+
+        .method-1 {
+            animation-delay: .2s;
+        }
+
+        .method-2 {
+            animation-delay: .6s;
+        }
+
+        .method-3 {
+            animation-delay: 1s;
+        }
+
+        .method-4 {
+            animation-delay: 1.4s;
+        }
+
+        .exo-travel-image {
+            transform: translateX(0);
+        }
     }
 }
 

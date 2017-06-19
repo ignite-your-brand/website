@@ -202,7 +202,7 @@ $grid-gutter-widths: (
 //
 // Font, line-height, and color for body text, headings, and more.
 
-$font-family-sans-serif: Helvetica, Arial, sans-serif;
+$font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-family-serif:      Georgia, "Times New Roman", Times, serif;
 $font-family-monospace:  Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 $font-family-base:       $font-family-sans-serif;
@@ -227,14 +227,14 @@ $font-size-h6: 1rem;
 
 $headings-margin-bottom: ($spacer / 2);
 $headings-font-family:   inherit;
-$headings-font-weight:   $font-weight-bold;
+$headings-font-weight:   400;
 $headings-line-height:   1.1;
 $headings-color:         inherit;
 
 $display1-size: 6rem;
 $display2-size: 5.5rem;
 $display3-size: 4.5rem;
-$display4-size: 3.5rem;
+$display4-size: 3rem;
 
 $display1-weight:     $font-weight-normal;
 $display2-weight:     $font-weight-normal;
