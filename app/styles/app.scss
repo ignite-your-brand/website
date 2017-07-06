@@ -6,6 +6,7 @@ $transparent-black: rgba($black, .8);
 
 header {
     background-color: $transparent-black;
+    z-index: $zindex-navbar;
 }
 
 footer {
@@ -14,6 +15,10 @@ footer {
 
 b, strong {
     font-weight: $font-weight-bold;
+}
+
+p {
+    letter-spacing: 1px;
 }
 
 sup {
@@ -194,6 +199,10 @@ hr {
     position: relative;
 }
 
+.bg-black {
+    background-color: $black;
+}
+
 // components
 
 // pages
@@ -201,15 +210,16 @@ hr {
 .home {
 
     .full-height {
-        height: 600px;
-        height: 100vh;
+        min-height: 600px;
+        min-height: 100vh;
     }
 
     .introduction {
         background-color: $black;
+        overflow: hidden;
 
         h1, h2, h3, p, hr, button, .blockquote {
-            z-index: $zindex-popover;
+            z-index: 200;
             position: relative;
         }
 
@@ -220,14 +230,30 @@ hr {
     }
 
     .iyb-logo-video {
+        min-width: 200%;
+        min-height: 100%;
         position: absolute;
-        bottom: -150px;
-        right: -900px;
-        z-index: $zindex-sticky;
+        bottom: -40%;
+        right: -100%;
+        z-index: 100;
     }
 
-    .travel {
-        background-color: $black;
+    @media (max-height: 800px) {
+        .iyb-logo-video {
+            bottom: -60%;
+        }
+    }
+
+    @include media-breakpoint-down(md) {
+        .iyb-logo-video {
+            right: -150%;
+        }
+    }
+
+    @include media-breakpoint-down(sm) {
+        .iyb-logo-video {
+            right: -190%;
+        }
     }
 
     .exo-travel {
@@ -235,16 +261,29 @@ hr {
         background-image: url('/assets/home-0003.jpg');
         background-position: center;
         background-repeat: no-repeat;
-        background-size: cover;
         background-attachment: fixed;
     }
 
-    .startup {
-        background-color: $black;
+    .exo-travel-image {
+        transform: translateX(-250px);
+        transition: transform 3s ease-in-out .5s;
     }
 
-    .property {
-        background-color: $black;
+    .grant-property {
+        overflow: hidden;
+        background-image: url('/assets/grant-property-background.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    .grant-property-image {
+        width: 101%; // 1% over to stop background peeking through
+    }
+
+    .img-profile {
+        width: 100%;
+        max-width: 180px;
     }
 
     .below-the-fold {
@@ -253,10 +292,6 @@ hr {
             opacity: 0;
         }
 
-        .exo-travel-image {
-            transform: translateX(-100px);
-            transition: transform 2s;
-        }
     }
 
     .above-the-fold {
@@ -264,6 +299,12 @@ hr {
         .method-1, .method-2, .method-3, .method-4 {
             animation: fade-in 1s ease-in-out;
             animation-fill-mode: backwards;
+        }
+
+        @include media-breakpoint-down(xs) {
+            .method-1, .method-2, .method-3, .method-4 {
+                animation-duration: .5s;
+            }
         }
 
         .method-1 {
@@ -284,6 +325,31 @@ hr {
 
         .exo-travel-image {
             transform: translateX(0);
+        }
+
+        @include media-breakpoint-down(md) {
+            .exo-travel-image {
+                transform: translateX(-170px);
+            }
+        }
+
+        @keyframes flicker-load {
+            0% { opacity: .5; }
+            18% { opacity: .8; }
+            20% { opacity: 1; }
+            24% { opacity: .7; }
+            40% { opacity: .5; }
+            60% { opacity: .5; }
+            70% { opacity: .8; }
+            80% { opacity: 1; }
+            90% { opacity: .7; }
+            100% {opacity: 1;}
+        }
+
+        .landbase-logo {
+            animation: flicker-load 1s;
+            animation-delay: .5s;
+            animation-fill-mode: backwards;
         }
     }
 }
