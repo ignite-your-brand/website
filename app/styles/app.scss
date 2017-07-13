@@ -2,6 +2,10 @@
 
 // layout
 
+body {
+    letter-spacing: 1px;
+}
+
 $transparent-black: rgba($black, .8);
 
 header {
@@ -9,54 +13,9 @@ header {
     z-index: $zindex-navbar;
 }
 
-footer {
-    background-color: $black;
-}
+header, footer {
 
-b, strong {
-    font-weight: $font-weight-bold;
-}
-
-p {
-    letter-spacing: 1px;
-}
-
-sup {
-    top: -2em;
-    right: -.3em;
-    font-size: 32%;
-}
-
-.no-wrap {
-    white-space: nowrap;
-}
-
-.clickable {
-
-    &:hover {
-        cursor: pointer;
-        text-decoration: underline;
-    }
-}
-
-.text-lg {
-    font-size: $font-size-lg;
-}
-
-@include media-breakpoint-down(xs) {
-    .display-3 {
-        font-size: $display3-size - 1;
-    }
-
-    .text-xs-center {
-        text-align: center !important;
-    }
-}
-
-.text-white {
-
-    & .clickable,
-    & a {
+    a {
         color: $white;
 
         &:visited,
@@ -72,67 +31,37 @@ sup {
     }
 }
 
-.text-orange {
-    color: $orange;
+footer {
+    margin-top: $spacer * 10;
 }
 
-.text-blue {
-    color: $blue;
+.logo {
+    width: 200px;
+    max-width: 100%;
 }
 
-.text-yellow {
-    color: $yellow;
-}
-
-.text-pink {
-    color: $pink;
-}
-
-.blockquote {
-    border-width: 0;
-
-    .blockquote-footer {
-        color: inherit;
-
-        &::before {
-            content: none;
+@media (max-width: #{map-get($grid-breakpoints, sm)}) {
+    header {
+        .logo {
+            margin-bottom: $spacer;
         }
     }
+}
 
-    .profile-img {
-        width: 100px;
-        height: 100px;
-        float: left;
-        border-radius: 50%;
-        margin-right: $spacer;
+.clickable {
+
+    &:hover {
+        cursor: pointer;
+        text-decoration: underline;
     }
 }
 
-@keyframes fade-in {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
+h3, h4, h5, h6 {
+    font-weight: $font-weight-medium;
 }
 
-.fade-in-1, .fade-in-2, .fade-in-3 {
-    animation: fade-in 1s ease-in-out;
-    animation-fill-mode: backwards;
-}
-
-.fade-in-1 {
-    animation-delay: .2s;
-}
-
-.fade-in-2 {
-    animation-delay: .4s;
-}
-
-.fade-in-3 {
-    animation-delay: .6s;
+strong {
+    font-weight: $font-weight-bold;
 }
 
 .btn {
@@ -141,240 +70,221 @@ sup {
     }
 }
 
+.mt-6 {
+    margin-top: $spacer * 5;
+}
+
+$colours: ("green", $green), ("pink", $pink), ("orange", $orange), ("blue", $blue), ("purple", $purple), ("yellow", $yellow);
+
 hr {
+    border-top: 3px solid $white;
+    width: 30px;
     display: inline-block;
-    border-top-width: 3px;
-    border-top-style: solid;
-    border-top-color: $white;
-    width: 40px;
 
-    &.orange {
-        border-top-color: $orange;
-    }
-
-    &.blue {
-        border-top-color: $blue;
-    }
-
-    &.yellow {
-        border-top-color: $yellow;
-    }
-
-    &.pink {
-        border-top-color: $pink;
+    @each $classname, $colour in $colours {
+        &.hr-#{$classname} {
+            border-top-color: $colour;
+        }
     }
 }
 
-.btn-outline-secondary {
-
-    &:hover {
-        color: $gray-dark;
+@media (max-width: #{map-get($grid-breakpoints, sm)}) {
+    .text-center-xs {
+        text-align: center !important;
     }
-}
 
-.img-fluid {
-    min-width: 100%;
-}
+    .text-right-xs {
+        text-align: right !important;
+    }
 
-.img-full-height {
-    height: 100%;
-}
-
-.mt-10 {
-    margin-top: 10%;
-    margin-top: 10vh;
-}
-
-.mt-15 {
-    margin-top: 15%;
-    margin-top: 15vh;
-}
-
-.mt-20 {
-    margin-top: 20%;
-    margin-top: 20vh;
-}
-
-.p-relative {
-    position: relative;
-}
-
-.bg-black {
-    background-color: $black;
+    .text-left-xs {
+        text-align: left !important;
+    }
 }
 
 // components
+
+.type-writer {
+
+    .type-area {
+        padding-right: $spacer / 4;
+        border-right: $spacer / 5 solid $orange;
+        animation: blink-caret 1.2s step-end infinite;
+    }
+
+    .sub-type-area {
+        min-width: 30px;
+        height: 30px;
+    }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: $orange; }
+}
+
+.scroll-icon {
+    display: none;
+    opacity: .4;
+}
+
+.logo-video {
+    width: 1920px;
+    height: auto;
+    position: absolute;
+    bottom: -300px;
+    right: -1000px;
+    z-index: -1;
+}
+
+.show-reel {
+    display: none;
+}
+
+.flipper-card-wrapper {
+	perspective: 1000px;
+
+    &:hover {
+
+        .flipper-card {
+            transform: rotateY(180deg);
+        }
+    }
+
+    .flipper-card {
+    	transition: .6s;
+    	transform-style: preserve-3d;
+    	position: relative;
+    }
+
+    .flipper-card-front, .flipper-card-back {
+    	backface-visibility: hidden;
+    }
+
+    .flipper-card-front {
+    	z-index: 2;
+    	transform: rotateY(0deg);
+    }
+
+    .flipper-card-back {
+    	transform: rotateY(180deg);
+        background-color: $gray-dark;
+        position: absolute;
+    	top: 0;
+    	left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+    }
+}
 
 // pages
 
 .home {
 
-    .full-height {
-        min-height: 600px;
-        min-height: 100vh;
-    }
+    overflow: hidden;
 
     .introduction {
-        background-color: $black;
-        overflow: hidden;
+        position: relative;
+        padding-top: 35%;
+        padding-top: 35vh;
+        height: 100%;
+        height: 100vh;
 
-        h1, h2, h3, p, hr, button, .blockquote {
-            z-index: 200;
-            position: relative;
+        h1 {
+            margin-bottom: $spacer * 2;
         }
 
-        .blockquote {
-            margin-top: 20%;
-            margin-top: 20vh;
+        h2 {
+            margin-bottom: $spacer * 3;
         }
-    }
 
-    .iyb-logo-video {
-        min-width: 200%;
-        min-height: 100%;
-        position: absolute;
-        bottom: -40%;
-        right: -100%;
-        z-index: 100;
-    }
-
-    @media (max-height: 800px) {
-        .iyb-logo-video {
-            bottom: -60%;
+        button {
+            margin-bottom: 25%;
         }
     }
 
-    @include media-breakpoint-down(md) {
-        .iyb-logo-video {
-            right: -150%;
+    @media (max-width: #{map-get($grid-breakpoints, sm)}) {
+
+        .introduction {
+            padding-top: 25%;
+            padding-top: 25vh;
         }
     }
 
-    @include media-breakpoint-down(sm) {
-        .iyb-logo-video {
-            right: -190%;
+    .testimonial {
+
+        img {
+            max-width: 170px;
         }
     }
 
-    .exo-travel {
-        overflow: hidden;
-        background-image: url('/assets/home-0003.jpg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }
+    .client-logos {
+        display: flex;
+        align-items: flex-start;
 
-    .exo-travel-image {
-        transform: translateX(-250px);
-        transition: transform 3s ease-in-out .5s;
-    }
-
-    .grant-property {
-        overflow: hidden;
-        background-image: url('/assets/grant-property-background.jpg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }
-
-    .grant-property-image {
-        width: 101%; // 1% over to stop background peeking through
-    }
-
-    .img-profile {
-        width: 100%;
-        max-width: 180px;
-    }
-
-    .below-the-fold {
-
-        .method-1, .method-2, .method-3, .method-4 {
-            opacity: 0;
-        }
-
-    }
-
-    .above-the-fold {
-
-        .method-1, .method-2, .method-3, .method-4 {
-            animation: fade-in 1s ease-in-out;
-            animation-fill-mode: backwards;
-        }
-
-        @include media-breakpoint-down(xs) {
-            .method-1, .method-2, .method-3, .method-4 {
-                animation-duration: .5s;
-            }
-        }
-
-        .method-1 {
-            animation-delay: .2s;
-        }
-
-        .method-2 {
-            animation-delay: .6s;
-        }
-
-        .method-3 {
-            animation-delay: 1s;
-        }
-
-        .method-4 {
-            animation-delay: 1.4s;
-        }
-
-        .exo-travel-image {
-            transform: translateX(0);
-        }
-
-        @include media-breakpoint-down(md) {
-            .exo-travel-image {
-                transform: translateX(-170px);
-            }
-        }
-
-        @keyframes flicker-load {
-            0% { opacity: .5; }
-            18% { opacity: .8; }
-            20% { opacity: 1; }
-            24% { opacity: .7; }
-            40% { opacity: .5; }
-            60% { opacity: .5; }
-            70% { opacity: .8; }
-            80% { opacity: 1; }
-            90% { opacity: .7; }
-            100% {opacity: 1;}
-        }
-
-        .landbase-logo {
-            animation: flicker-load 1s;
-            animation-delay: .5s;
-            animation-fill-mode: backwards;
-        }
-    }
-}
-
-.work {
-
-    .container {
-        margin-top: 100px;
-    }
-
-    .col {
-        background-color: $blue;
-
-        &:nth-child(odd) {
-            background-color: $pink;
-        }
-
-        &:hover {
-            cursor: pointer;
-            opacity: .8;
+        img {
+            width: 18%;
+            height: auto;
+            flex-grow: 1;
+            margin: 3%;
         }
     }
 
     .case-study {
-        width: 100%;
-        height: 300px;
+
+        .featured-image {
+            min-height: 450px;
+            max-height: 550px;
+            height: 60vh;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+
+        .skills {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            font-size: $font-size-sm;
+            padding: $spacer / 3;
+            text-align: center;
+        }
+
+        .result {
+
+            p {
+                margin-bottom: $spacer / 4;
+            }
+        }
+
+        @each $classname, $colour in $colours {
+            &.#{$classname} {
+                .skills {
+                    background-color: $colour;
+                }
+
+                .callout {
+                    color: $colour;
+                    font-weight: $font-weight-medium;
+                    font-size: $display4-size;
+                }
+
+                hr {
+                    border-top-color: $colour;
+                }
+            }
+        }
+    }
+
+    .employee-details {
+        padding: $spacer * 2;
+
+        p, hr {
+            margin-bottom: 0;
+        }
     }
 }

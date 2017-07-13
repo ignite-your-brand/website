@@ -7,9 +7,9 @@ module.exports = function(environment) {
     rootURL: '/',
     locationType: 'auto',
     contentful: {
-        space: '',
-        accessToken: '',
-        previewAccessToken: '',
+        space: '71w5weqaik7x',
+        accessToken: 'f6ede75dfffe3f0b23a7399b8d77984472181b5ab834bf242103d6343064eb6b',
+        previewAccessToken: '7ab0502d9d142e520a2c7884db59c33c5ddf16e626a991f2efd511f053276c30',
         usePreviewApi: false
     },
     EmberENV: {
@@ -31,6 +31,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.contentful.usePreviewApi = false;
   }
 
   if (environment === 'test') {
