@@ -1,2 +1,2 @@
-darken logo
-on scroll after intro brighten logo 
+cross browser (safari, firefox, ie)
+cross device (responsive)
