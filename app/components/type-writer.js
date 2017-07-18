@@ -13,7 +13,7 @@ export default Ember.Component.extend({
     isTyping: false,
     triggerTyping: Ember.observer('titleIndex', function () {
         let titleIndex = this.get('titleIndex');
-        if ( ! Number.isNaN( titleIndex ) ) {
+        if ( ! isNaN( titleIndex ) ) {
             this.typing( titleIndex );
             this.setState( 'typing' );
         }
