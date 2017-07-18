@@ -162,6 +162,7 @@ hr {
 
 .flipper-card-wrapper {
 	perspective: 1000px;
+    transform-style: preserve-3d;
 
     &:hover {
 
@@ -177,7 +178,8 @@ hr {
     }
 
     .flipper-card-front, .flipper-card-back {
-    	backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
     }
 
     .flipper-card-front {
