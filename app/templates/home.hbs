@@ -5,7 +5,7 @@
             <h2 class="sub-type-area">{{model.content.subtitle}}</h2>
             {{show-reel}}
             {{scroll-icon class="text-center"}}
-            {{logo-video mp4Src="/assets/IYB-logo.mp4"}}
+            {{logo-video mp4Src="/assets/IYB-logo.mp4" class="hidden-xs-down"}}
         </div>
     </div>
     <div class="row mt-4 justify-content-center">
@@ -47,10 +47,10 @@
         <div class="row">
             <div class="col-12 col-sm-6">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-12 col-sm-6">
                         {{markdown-to-html caseStudy.action}}
                     </div>
-                    <div class="col-6 result">
+                    <div class="col-12 col-sm-6 result">
                         {{markdown-to-html caseStudy.result}}
                         <p><span class="callout">{{#if caseStudy.callout}}{{caseStudy.callout}}{{/if}}</span></p>
                     </div>
@@ -60,7 +60,7 @@
                 {{markdown-to-html caseStudy.overview}}
             </div>
         </div>
-        <div class="row mt-5 case-study-images">
+        <div class="row mt-5 case-study-images hidden-xs-down">
             {{#each caseStudy.images as |image|}}
             <div class="col-12 col-sm-4 pb-2 case-study-image-wrapper">
             {{#slide-in-wrapper}}
@@ -95,7 +95,7 @@
     </div>
     <div class="row mt-5">
         {{#each model.team as |employee|}}
-        <div class="col-6 col-md-4 mb-4">
+        <div class="col-12 col-sm-6 col-md-4 mb-4">
             {{#flipper/card-wrapper}}
                 {{#flipper/card-front}}
                     <img class="img-fluid" src="{{employee.photo.file.url}}" alt="{{employee.photo.file.title}}">

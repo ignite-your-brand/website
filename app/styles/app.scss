@@ -121,6 +121,36 @@ hr {
     }
 }
 
+.modal {
+    &.show {
+        display: flex !important;
+    }
+
+    .modal-dialog {
+        display: flex;
+        max-width: 100% !important;
+        margin: 8% !important;
+        width: 100% !important;
+
+        .modal-content {
+            width: 100%;
+
+            button {
+                margin-bottom: auto;
+                position: absolute;
+                top: -15px;
+                right: -15px;
+                color: white;
+            }
+
+            iframe {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
 // components
 
 .type-writer {
@@ -129,6 +159,12 @@ hr {
         padding-right: $spacer / 4;
         border-right: $spacer / 5 solid $orange;
         animation: blink-caret 1.2s step-end infinite;
+    }
+
+    @media (max-width: #{map-get($grid-breakpoints, sm)}) {
+        .type-area {
+            border-right: none;
+        }
     }
 
     .sub-type-area {
@@ -241,6 +277,13 @@ hr {
 
         h1 {
             margin-bottom: $spacer * 2;
+
+            @media (max-width: #{map-get($grid-breakpoints, sm)}) {
+                strong {
+                    display: block;
+                    height: 61px;
+                }
+            }
         }
 
         h2 {
@@ -250,6 +293,12 @@ hr {
         button {
             margin-bottom: 25%;
             margin-bottom: 25vh;
+        }
+
+        @media (max-width: #{map-get($grid-breakpoints, sm)}) {
+            button {
+                margin-bottom: 10vh;
+            }
         }
     }
 
@@ -301,7 +350,7 @@ hr {
             left: 0;
             width: 100%;
             font-size: $font-size-sm;
-            padding: $spacer / 3;
+            padding: $spacer / 3 $spacer;
             text-align: center;
         }
 

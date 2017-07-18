@@ -13,7 +13,7 @@ export default Ember.Component.extend({
     poster: false,
     preload: 'auto',
 
-    timeout: 7300,
+    timeout: 8000,
     mp4Src: '',
     didInsertElement() {
         Ember.run.later(this, function () {
