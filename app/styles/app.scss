@@ -167,6 +167,7 @@ hr {
     &:hover {
 
         .flipper-card {
+            backface-visibility: hidden;
             transform: rotateY(180deg);
         }
     }
