@@ -89,6 +89,10 @@ strong {
     margin-top: $spacer * 5;
 }
 
+.mt-10 {
+    margin-top: $spacer * 10;
+}
+
 $colours: ("green", $green), ("pink", $pink), ("orange", $orange), ("blue", $blue), ("purple", $purple), ("yellow", $yellow);
 
 hr {

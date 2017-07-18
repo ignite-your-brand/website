@@ -14,7 +14,7 @@
             <hr class="hr-blue">
         </div>
     </div>
-    <div class="row mt-6 pt-5 hidden-xs-down align-items-center">
+    <div class="row mt-10 hidden-xs-down align-items-center">
         <div class="col-4 client-introduction">
             {{markdown-to-html model.content.introduction}}
         </div>
@@ -33,7 +33,7 @@
     </div>
 </div>
 {{#each model.caseStudies as |caseStudy|}}
-<div class="case-study {{caseStudy.highlightColour}} mt-6">
+<div class="case-study {{caseStudy.highlightColour}} mt-10">
     <div class="featured-image" style={{background-image caseStudy.featuredImage.file.url}}>
         <div class="skills">{{caseStudy.skillsList}}</div>
     </div>
@@ -76,7 +76,7 @@
             {{/slide-in-wrapper}}
             </div>
         </div>
-        <div class="row my-5">
+        <div class="row mt-6 pb-5">
             <div class="col text-center">
                 {{markdown-to-html caseStudy.testimonial}}
                 <hr>
@@ -86,7 +86,7 @@
 </div>
 {{/each}}
 <div class="container">
-    <div class="row mt-6 pt-5">
+    <div class="row mt-10">
         <div class="col">
             <h3>{{model.content.teamTitle}}</h3>
             <hr class="hr-green">
