@@ -148,11 +148,11 @@ hr {
 }
 
 .logo-video {
-    width: 1920px;
+    width: 2400px;
     height: auto;
     position: absolute;
-    bottom: -420px;
-    right: -1100px;
+    bottom: -600px;
+    right: -1300px;
     z-index: -1;
 }
 
@@ -278,6 +278,9 @@ hr {
     .case-study {
 
         .featured-image {
+            border-top-color: transparent;
+            border-top-width: 3px;
+            border-top-style: solid;
             min-height: 450px;
             max-height: 550px;
             height: 60vh;
@@ -306,6 +309,10 @@ hr {
 
         @each $classname, $colour in $colours {
             &.#{$classname} {
+                .featured-image {
+                    border-top-color: $colour;
+                }
+
                 .skills {
                     background-color: $colour;
                 }
