@@ -3,7 +3,8 @@
     "document",
     "window",
     "-Promise",
-    "ga"
+    "ga",
+    "$f"
   ],
   "browser": true,
   "boss": true,

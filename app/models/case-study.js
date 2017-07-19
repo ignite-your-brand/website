@@ -1,6 +1,7 @@
 import Contentful from 'ember-data-contentful/models/contentful';
 import attr from 'ember-data/attr';
 import { hasMany, belongsTo } from 'ember-data/relationships';
+import Ember from 'ember';
 
 export default Contentful.extend({
     name: attr('string'),

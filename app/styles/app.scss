@@ -140,7 +140,7 @@ hr {
                 position: absolute;
                 top: -15px;
                 right: -15px;
-                color: white;
+                color: $white;
             }
 
             iframe {
@@ -163,7 +163,7 @@ hr {
 
     @media (max-width: #{map-get($grid-breakpoints, sm)}) {
         .type-area {
-            border-right: none;
+            border-right: 0;
         }
     }
 
@@ -298,6 +298,18 @@ hr {
         @media (max-width: #{map-get($grid-breakpoints, sm)}) {
             button {
                 margin-bottom: 10vh;
+            }
+        }
+
+        @media (max-height: 600px) {
+            button {
+                margin-bottom: 10vh;
+            }
+        }
+
+        @media (max-height: 500px) {
+            button {
+                margin-bottom: 2vh;
             }
         }
     }

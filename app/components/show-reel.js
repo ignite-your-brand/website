@@ -8,7 +8,7 @@ export default Ember.Component.extend({
             this.$().fadeIn( 600 );
         }, this.get('timeout'));
 
-        $('#show-reel-modal').on('hide.bs.modal', function (e) {
+        Ember.$('#show-reel-modal').on('hide.bs.modal', function () {
             this.send('stopVideo');
         }.bind(this));
     },
