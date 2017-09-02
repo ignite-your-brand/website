@@ -95,7 +95,7 @@
     </div>
     <div class="row mt-5">
         {{#each model.team as |employee|}}
-        <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <div class="col-12 col-sm-6 col-xl-3 mb-4">
             {{#flipper/card-wrapper}}
                 {{#flipper/card-front}}
                     <img class="img-fluid" src="{{employee.photo.file.url}}" alt="{{employee.photo.file.title}}">
@@ -104,7 +104,9 @@
                     <div class="employee-details">
                         <h4>{{employee.name}}</h4>
                         <p>{{employee.title}}</p>
+                        <p><a href="mailto:{{employee.email}}">{{employee.email}}</a></p>
                         <hr class="hr-{{employee.highlightColour}}">
+                        {{employee-social-profiles employee=employee}}
                     </div>
                 {{/flipper/card-back}}
             {{/flipper/card-wrapper}}

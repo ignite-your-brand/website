@@ -4,7 +4,11 @@ import { belongsTo } from 'ember-data/relationships';
 
 export default Contentful.extend({
     name: attr('string'),
+    email: attr('string'),
     title: attr('string'),
     highlightColour: attr('string'),
-    photo: belongsTo('contentful-asset')
+    photo: belongsTo('contentful-asset'),
+    linkedInProfile: attr('string'),
+    twitterProfile: attr('string'),
+    facebookProfile: attr('string')
 });

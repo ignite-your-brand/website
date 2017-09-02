@@ -41,21 +41,18 @@ header {
     }
 }
 
-header, footer {
+a {
+    color: $white;
 
-    a {
+    &:visited,
+    &:active,
+    &:focus {
         color: $white;
+    }
 
-        &:visited,
-        &:active,
-        &:focus {
-            color: $white;
-        }
-
-        &:hover {
-            color: $white;
-            opacity: .8;
-        }
+    &:hover {
+        color: $white;
+        cursor: pointer;
     }
 }
 
@@ -413,8 +410,12 @@ hr {
     .employee-details {
         padding: $spacer * 2;
 
-        p, hr {
+        p {
             margin-bottom: 0;
+        }
+
+        p, hr {
+            margin-bottom: 14px;
         }
     }
 }
