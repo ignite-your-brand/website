@@ -1,13 +1,7 @@
 
-fastboot deployment
-
-run `npm install -g --production` to install production dependencies (docker server?)
-run `npm install` inside dist (to use dist/package.json)
-
 check ga, hotjar in production
 configure live chat
 install live chat apps
-
 
 
 # to discuss with team
