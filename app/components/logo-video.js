@@ -4,13 +4,12 @@ export default Ember.Component.extend({
     tagName: 'video',
     classNames: ['logo-video'],
 
-    attributeBindings: ['autoplay', 'controls', 'loop', 'muted', 'poster', 'preload'],
+    attributeBindings: ['autoplay', 'controls', 'loop', 'muted', 'preload'],
 
     autoplay: false,
     controls: false,
     loop: false,
     muted: true,
-    poster: false,
     preload: 'auto',
 
     timeout: 8000,

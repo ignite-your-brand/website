@@ -1,22 +1,12 @@
 #!/bin/bash
 
-docker stop $(docker ps -q)
+export COMPOSE_PROJECT_NAME=ignite
 
-docker kill ignite
-docker rm ignite
+docker-compose build
 
-docker build -t ignite .
+docker-compose stop
+docker-compose kill
+docker-compose rm -f
 
-if [ -z "$APP_ENV" ]; then
-    APP_ENV="prod"
-fi
-
-if [ $APP_ENV == "dev" ]; then
-    docker run --name ignite -p 0.0.0.0:80:80 \
-        -v /Users/matthewdavies/Sites/ignite-your-brand/:/var/www/html \
-        ignite
-else
-    docker run -d --name ignite -p 0.0.0.0:80:80 \
-        -v /home/ubuntu/ignite/:/var/www/html \
-        ignite
-fi
+docker-compose create
+docker-compose start

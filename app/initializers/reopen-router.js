@@ -1,22 +1,44 @@
+/* global ga */
+
 import Ember from 'ember';
+
+let alreadyRun = false;
 
 export function initialize() {
 
+    if (alreadyRun) {
+        return;
+    } else {
+        alreadyRun = true;
+    }
+
     Ember.Router.reopen({
-        notifyGoogleAnalytics: function() {
-            if ( typeof ga === 'undefined' ) {
+
+        headData: Ember.inject.service('head-data'),
+        fastboot: Ember.inject.service(),
+
+        currentPathName: null,
+
+        trackPageChange: Ember.on('didTransition', function() {
+
+            if (this.get('fastboot.isFastBoot')) {
                 return;
             }
-            return ga('send', 'pageview', {
-                'page': this.get('url'),
-                'title': this.get('url')
-            });
-        }.on('didTransition')
+
+            if (typeof ga !== 'undefined') {
+                ga('set', {
+                    'page': document.location.pathname + document.location.search,
+                    'title': this.get('headData.pageTitle')
+                });
+                ga('send', 'pageview');
+            }
+
+        })
+
     });
 
 }
 
 export default {
-  name: 'reopen-router',
-  initialize
+    initialize
 };
