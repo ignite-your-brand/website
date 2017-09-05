@@ -10,3 +10,5 @@ docker-compose rm -f
 
 docker-compose create
 docker-compose start
+
+docker ps
