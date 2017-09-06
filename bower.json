@@ -1,6 +1,7 @@
 {
   "name": "ignite-your-brand",
   "dependencies": {
-    "bootstrap": "v4.0.0-beta"
+    "bootstrap": "v4.0.0-beta",
+    "vimeo-player-js": "2.1.1"
   }
 }

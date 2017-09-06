@@ -87,7 +87,7 @@
 {{/each}}
 <div class="container">
     <div class="row mt-10">
-        <div class="col">
+        <div class="col col-lg-8">
             <h3>{{model.content.teamTitle}}</h3>
             <hr class="hr-green">
             {{markdown-to-html model.content.teamIntroduction}}
@@ -95,7 +95,7 @@
     </div>
     <div class="row mt-5">
         {{#each model.team as |employee|}}
-        <div class="col-12 col-sm-6 col-xl-3 mb-4">
+        <div class="col-12 col-sm-6 col-lg-3 mb-4">
             {{#flipper/card-wrapper}}
                 {{#flipper/card-front}}
                     <img class="img-fluid" src="{{employee.photo.file.url}}" alt="{{employee.photo.file.title}}">

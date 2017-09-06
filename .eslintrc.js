@@ -9,7 +9,7 @@ module.exports = {
     browser: true
   },
   globals: {
-    "$f": true,
+    "Vimeo": true,
     "ga": true
   },
   rules: {

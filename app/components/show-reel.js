@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
     classNames: ['show-reel'],
     timeout: 7400,
+    player: null,
     didInsertElement() {
         Ember.run.later(this, function () {
             this.$().fadeIn( 600 );
@@ -11,15 +12,33 @@ export default Ember.Component.extend({
         Ember.$('#show-reel-modal').on('hide.bs.modal', function () {
             this.send('stopVideo');
         }.bind(this));
+
+        let player = new Vimeo.Player( Ember.$('#show-reel-modal')[0] );
+
+        player.addCuePoint(139, {
+            customKey: 'at-end'
+        });
+
+        player.on('cuepoint', function (cue) {
+            if ( cue.data.customKey == 'at-end' ) {
+                Ember.$('#show-reel-modal').modal('hide');
+            }
+        });
+
+        this.set('player', player);
     },
     actions: {
         playVideo() {
-            var player = $f( this.$('iframe')[0] );
-            player.api('play');
+            let player = this.get('player');
+            if ( player ) {
+                player.play();
+            }
         },
         stopVideo() {
-            var player = $f( this.$('iframe')[0] );
-            player.api('pause');
+            let player = this.get('player');
+            if ( player ) {
+                player.pause();
+            }
         }
     }
 });

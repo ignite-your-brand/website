@@ -15,8 +15,7 @@
     "test": "ember test"
   },
   "dependencies": {
-    "fastboot-app-server": "1.0.1",
-    "fastboot-watch-notifier": "3.0.0"
+    "fastboot-app-server": "1.0.1"
   },
   "devDependencies": {
     "broccoli-asset-rev": "2.6.0",
@@ -58,7 +57,8 @@
   "private": true,
   "ember-addon": {
     "paths": [
-      "lib/bootstrap"
+      "lib/bootstrap",
+      "lib/vimeo"
     ]
   }
 }

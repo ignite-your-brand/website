@@ -1,9 +1,4 @@
 
-check ga, hotjar in production
-configure live chat
-install live chat apps
-
-
 # to discuss with team
 
 new website is live
@@ -12,8 +7,6 @@ redirect old emails
 setup new emails on laptops and phones
 setup new calendars
 payment card for Google apps
-
-outline new strategic objective
 
 Ignite Group LLP
 explain how "partners" could work
