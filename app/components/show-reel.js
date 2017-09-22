@@ -15,13 +15,15 @@ export default Ember.Component.extend({
 
         let player = new Vimeo.Player( Ember.$('#show-reel-modal')[0] );
 
-        player.addCuePoint(139, {
+        player.addCuePoint(140, {
             customKey: 'at-end'
         });
 
         player.on('cuepoint', function (cue) {
             if ( cue.data.customKey == 'at-end' ) {
-                Ember.$('#show-reel-modal').modal('hide');
+                Ember.$('#show-reel-modal').fadeOut(600, function () {
+                    Ember.$(this).modal('hide');
+                });
             }
         });
 
