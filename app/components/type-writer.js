@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
-const START_DELAY = 250;
-const WRITE_CHARACTER_DELAY = 80;
+const START_DELAY = 350;
+const WRITE_CHARACTER_DELAY = 60;
 const DELETE_CHARACTER_DELAY = 50;
 const PAUSE_BETWEEN_TITLES = 750;
 

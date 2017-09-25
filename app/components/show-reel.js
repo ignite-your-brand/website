@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
     classNames: ['show-reel'],
-    timeout: 7400,
+    timeout: 0,
     player: null,
     didInsertElement() {
         Ember.run.later(this, function () {
