@@ -2,13 +2,11 @@
 
 export COMPOSE_PROJECT_NAME=ignite
 
+docker-compose build
+
 docker-compose stop
 docker-compose kill
-
-docker rmi -f $(docker images -a -q)
-docker rm -f $(docker ps -a -q)
-
-docker-compose build
+docker-compose rm -f
 
 docker-compose create
 docker-compose start
