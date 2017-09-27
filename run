@@ -7,8 +7,8 @@ docker-compose build
 docker-compose stop
 docker-compose kill
 
-docker rmi $(docker images -a -q)
-docker rm $(docker ps -a -q)
+docker rmi -f $(docker images -a -q)
+docker rm -f $(docker ps -a -q)
 
 docker-compose create
 docker-compose start
