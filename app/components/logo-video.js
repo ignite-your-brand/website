@@ -5,6 +5,7 @@ export default VideoContainer.extend({
     classNames: ['logo-video'],
     muted: true,
     timeout: 7000,
+    preload: 'auto',
     didInsertElement() {
         Ember.run.later(this, function () {
             this.$()[0].play();
