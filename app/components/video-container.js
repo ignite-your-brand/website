@@ -12,7 +12,7 @@ export default Ember.Component.extend({
     preload: 'auto',
     src: Ember.computed.alias('mp4Src'),
     mp4Src: '',
-    timeout: 100,
+    timeout: 200,
     didInsertElement() {
         Ember.run.later(this, function () {
             this.$()[0].muted = false;
