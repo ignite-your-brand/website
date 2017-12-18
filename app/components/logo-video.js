@@ -1,19 +1,10 @@
 import Ember from 'ember';
+import VideoContainer from '../components/video-container';
 
-export default Ember.Component.extend({
-    tagName: 'video',
+export default VideoContainer.extend({
     classNames: ['logo-video'],
-
-    attributeBindings: ['autoplay', 'controls', 'loop', 'muted', 'preload'],
-
-    autoplay: false,
-    controls: false,
-    loop: false,
-    muted: true,
-    preload: 'auto',
-
     timeout: 7000,
-    mp4Src: '',
+    muted: true,
     didInsertElement() {
         Ember.run.later(this, function () {
             this.$()[0].play();
