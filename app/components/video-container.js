@@ -9,6 +9,7 @@ export default Ember.Component.extend({
     controls: true,
     loop: false,
     muted: false,
+    preload: 'auto',
     src: Ember.computed.alias('mp4Src'),
     mp4Src: '',
     timeout: 300,
