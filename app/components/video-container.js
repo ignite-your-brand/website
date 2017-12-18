@@ -13,9 +13,4 @@ export default Ember.Component.extend({
     src: Ember.computed.alias('mp4Src'),
     mp4Src: '',
     timeout: 100,
-    didInsertElement() {
-        Ember.run.later(this, function () {
-            this.$()[0].play();
-        }, this.get('timeout'));
-    }
 });
