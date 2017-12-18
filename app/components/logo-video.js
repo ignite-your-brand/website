@@ -3,8 +3,8 @@ import VideoContainer from '../components/video-container';
 
 export default VideoContainer.extend({
     classNames: ['logo-video'],
-    timeout: 7000,
     muted: true,
+    timeout: 7000,
     didInsertElement() {
         Ember.run.later(this, function () {
             this.$()[0].play();
