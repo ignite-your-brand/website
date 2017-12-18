@@ -3,7 +3,6 @@ import VideoContainer from '../components/video-container';
 
 export default VideoContainer.extend({
     classNames: ['logo-video'],
-    autoplay: false,
     muted: true,
     timeout: 7000,
     didInsertElement() {
