@@ -5,7 +5,7 @@ export default Ember.Component.extend({
     tagName: 'video',
     classNames: ['video'],
     attributeBindings: ['autoplay', 'controls', 'loop', 'muted', 'preload', 'src'],
-    autoplay: false,
+    autoplay: true,
     controls: false,
     loop: false,
     muted: false,
