@@ -8,14 +8,14 @@ export default Ember.Component.extend({
     autoplay: true,
     controls: true,
     loop: false,
-    muted: false,
+    muted: true,
     preload: 'auto',
     src: Ember.computed.alias('mp4Src'),
     mp4Src: '',
-    timeout: 300,
+    timeout: 100,
     didInsertElement() {
         Ember.run.later(this, function () {
-            this.$()[0].play();
+            this.$()[0].muted = false;
         }, this.get('timeout'));
     }
 });
