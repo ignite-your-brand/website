@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('home', { path: '/' });
   this.route('creative-commons');
   this.route('xmas');
+  this.route('jobs', { path: 'careers' });
 });
 
 export default Router;

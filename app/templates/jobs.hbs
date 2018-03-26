@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="row">
+        <div class="col introduction">
+            <h1 class="display-2">{{markdown-to-html model.jobs.introTextOne}}</h1>
+            <h2 class="display-2 mt-4 text-warning">{{markdown-to-html model.jobs.introTextTwo}}</h2>
+        </div>
+    </div>
+</div>
+
+<hr class="hr pink dashed md-12 mt-5">
+
+<div class="container job-description">
+    <div class="row">
+        <!-- Description Intro Text -->
+        <div class="col col-md-10 mt-3">
+            {{markdown-to-html model.jobs.jobDescriptionText}}
+        </div>
+    </div>
+    <div class="row mt-4">
+        <!-- Left List Text -->
+        <div class="col-12 col-sm-6">
+            {{markdown-to-html model.jobs.jobDescriptionLeftColTitle class='heading text-warning'}}
+            {{ markdown-to-html model.jobs.jobDescriptionLeftColText class="mt-4"}}
+        </div>
+        <!-- Right List Text -->
+        <div class="col-12 col-sm-6">
+            {{markdown-to-html model.jobs.jobDescriptionRightColTitle class='heading text-warning'}}
+            {{ markdown-to-html model.jobs.jobDescriptionRightColText class="mt-4"}}
+        </div>
+    </div>
+
+    <!-- Opportunity text -->
+    <div class="row mt-4">
+        <div class="col-12">
+            {{markdown-to-html model.jobs.opportunityTitle class='heading text-warning'}}
+        </div>
+        <div class="col-12 col-sm-10">
+            {{ markdown-to-html model.jobs.opportunityText }}
+        </div>
+    </div>
+    <!-- Role and Responsibilities text -->
+    <div class="row mt-5">
+        <div class="col-12">
+            {{markdown-to-html model.jobs.roleTitle class='heading text-warning'}}
+        </div>
+        <div class="col-12 col-sm-10">
+            <!-- Role header text -->
+            {{ markdown-to-html model.jobs.roleText }}
+        </div>
+    </div>
+    <!-- Role and Responsibilities list -->
+    <div class="row mt-4">
+        <!-- Left List Text -->
+        <div class="col-12 col-sm-6">
+            {{ markdown-to-html model.jobs.roleLeftColList }}
+        </div>
+        <!-- Right List Text -->
+        <div class="col-12 col-sm-6">
+            {{ markdown-to-html model.jobs.roleRightColList }}
+        </div>
+    </div>
+
+    <!-- Footer text -->
+    <div class="row mt-4">
+        <div class="col-12">
+            {{markdown-to-html model.jobs.footerTitle class='heading text-warning'}}
+        </div>
+        <div class="col-12 col-sm-10">
+            {{markdown-to-html model.jobs.footerText}}
+        </div>
+    </div>
+</div>
