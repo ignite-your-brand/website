@@ -455,6 +455,10 @@ hr {
     }
 
     .job-description {
+        a {
+            text-decoration: none;
+			color: $orange;
+        }
 
         p {
             font-weight: 100;
