@@ -11,6 +11,8 @@ Router.map(function() {
   this.route('creative-commons');
   this.route('xmas');
   this.route('jobs', { path: 'careers' });
+  this.route('portfolio', { path: 'portfolio' });
+  this.route('project', { path: 'portfolio/:slug' });
 });
 
 export default Router;

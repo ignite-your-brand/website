@@ -1,0 +1,116 @@
+<!-- <div class="header-image" style={{ background-image model.headerImage.file.url }}></div> -->
+<div class="container-fluid header-image" style={{ background-image model.headerImage.file.url }}>
+    <div class="container">
+        <div class="col col-lg-8 text-left intro-text">
+            <h3>{{model.name}}</h3>
+            <hr class="hr-yellow center">
+            {{ markdown-to-html model.shortDescription }}
+        </div>
+    </div>
+</div>
+
+<div class="categories pink">
+    {{ plusify model.category }}
+</div>
+
+<div class="clear-absolute"></div>
+
+<!-- WEB TRAFFIC -->
+<div class="container">
+    <div class="row my-5">
+        <div class="col-12 col-lg-6 text-left py-10">
+            <h3>web trafic after <br> rebranding up by</h3>
+            <span class="callout">{{ model.webTrafficIncrease }}%</span>
+        </div>
+        <div class="col-12 col-lg-6">
+            {{ markdown-to-html model.webTrafficDescription }}
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid logo-image-wrapper">
+    <div class="row">
+        <img src="{{ model.logoImage.file.url }}" alt="Logo Image">
+    </div>
+</div>
+<!-- CHALENGE -->
+<div class="container">
+    <div class="row my-5 align-items-center chalenge">
+        <div class="col-12 col-md-6 text-left py-5 pr-5">
+            <h3 class="mb-5 section-title">The Challenge</h3>
+            {{ markdown-to-html model.chalengeText }}
+        </div>
+        <div class="col-12 col-md-6 text-center py-5">
+            <img src="{{ model.chalengeImage.file.url }}" alt="Chalenge Image">
+        </div>
+    </div>
+</div>
+<!-- TWO COLUMN IMAGES -->
+<div class="container-fluid">
+    <div class="row two-col-images">
+        <div class="col-12 col-md-6 nopadding">
+            {{#slide-in-wrapper}}
+            <img class="img-fluid nudge-up" src="{{ model.twoColumnImageLeft.file.url }}" alt="Left Image">
+            {{/slide-in-wrapper}}
+        </div>
+        <div class="col-12 col-md-6 nopadding">
+            {{#slide-in-wrapper}}
+            <img class="img-fluid nudge-up nudge-up-slow" src="{{ model.twoColumnImageRight.file.url }}" alt="Right Image">
+            {{/slide-in-wrapper}}
+        </div>
+    </div>
+</div>
+<!-- SOLUTION -->
+<div class="container mt-10">
+    <div class="row my-5 solution">
+        <div class="col-12 col-md-6">
+            <img src="{{ model.solutionImage.file.url }}" alt="Chalenge Image">
+        </div>
+        <div class="col-12 col-md-6 py-10 pl-5 pt-4">
+            <h3 class="mb-5 section-title">Solution</h3>
+            {{ markdown-to-html model.solutionText }}
+        </div>
+    </div>
+</div>
+
+<!-- DEVICES -->
+<div class="container mt-10">
+    <div class="row my-5 devices">
+        <div class="col-12 col-md-12">
+            {{#slide-in-wrapper}}
+            <img class="img-fluid nudge-up" src="{{ model.responsiveDevicesImage.file.url }}" alt="Chalenge Image">
+            {{/slide-in-wrapper}}
+        </div>
+    </div>
+</div>
+
+<!-- RESULT -->
+<div class="container mt-10">
+    <div class="row my-5 result">
+        <div class="col-12 col-md-8 mx-md-auto text-center">
+            <h3 class="mb-5 section-title">Result</h3>
+            {{ markdown-to-html model.resultText }}
+        </div>
+    </div>
+</div>
+
+<!-- TESTIMONIAL -->
+<div class="container mt-10">
+    <div class="row my-5 result">
+        <div class="col-12 col-md-8 mx-md-auto text-center">
+            {{ markdown-to-html model.testimonial }}
+            <hr class="hr-yellow center">
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid">
+    <div class="row mt-5 mx-auto">
+        <div class="chat-container d-flex flex-column align-items-center justify-content-center" style="height: 501px;">
+            <h4 class="text-center">Ready to learn what we can do for you?</h4>
+            {{show-chat}}
+        </div>
+
+    </div>
+</div>
