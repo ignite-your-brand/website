@@ -9,23 +9,19 @@
 </div>
 
 <div class="container">
-    <div class="row mt-5">
+    <div class="row mt-5 align-items-center">
         {{#each model.projects as |project|}}
-            <div class="col-12 col-sm-6 col-lg-4 mb-4 text-center">
+            <div class="col-12 col-sm-6 col-lg-4 mb-4 text-center project-image">
                 {{#link-to 'project' project.slug }}
-                    <img class="img-fluid" src="{{ project.portfolioImage.file.url }}" alt="{{ project.name }}">
+                    {{# if project.portfolioImage }}
+                        <img class="img-fluid" src="{{ project.portfolioImage.file.url }}" alt="{{ project.name }}">
+                    {{ else }}
+                        <img class="img-fluid" src="{{ project.featuredImage.file.url }}" alt="{{ project.name }}">
+                    {{/if}}
                 {{/link-to}}
             </div>
         {{/each}}
     </div>
 </div>
 
-<div class="container-fluid">
-    <div class="row mt-10">
-        <div class="chat-container d-flex flex-column align-items-center justify-content-center" style="height: 501px;">
-            <h4 class="text-center">Ready to learn what we can do for you?</h4>
-            {{show-chat}}
-        </div>
-
-    </div>
-</div>
+{{ scribble-footer }}

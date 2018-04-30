@@ -1,12 +1,19 @@
 @import 'bootstrap';
 
 // layout
+$transparent-black: rgba($black, .8);
 
 body {
     letter-spacing: 1px;
+    background-color: $black;
 }
 
-$transparent-black: rgba($black, .8);
+
+.home {
+    background: #000000; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #000000, #27363d); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #000000, #27363d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */   
+}
 
 .logo {
     width: 200px;
@@ -57,7 +64,8 @@ a {
 }
 
 footer {
-    margin-top: $spacer * 10;
+    padding-top: $spacer * 5;
+    background-color: $transparent-black;
 }
 
 .clickable {
@@ -260,12 +268,50 @@ hr {
     .nudge-up {
         transform: translateY($spacer);
     }
+    .nudge-left {
+        transform: translateX(0);
+    }
+    .nudge-right {
+        transform: translateX(0);
+    }
 }
 
 .above-the-fold {
     .nudge-up {
         transform: translateY(0);
     }
+    .nudge-left {
+        transition: transform 1s ease-in-out;
+        transform: translateX(-$spacer);
+    }
+    .nudge-right {
+        transition: transform 1s ease-in-out;
+        transform: translateX($spacer);
+    }
+}
+
+.scribble-footer {
+    background: url("/assets/scribble.png") no-repeat;
+    background-size: 100% 100%;
+    background-color: #202d32;
+    height: 501px;
+    width: 100%;
+
+    @media (max-width: #{map-get($grid-breakpoints, sm)}) {
+        height: 200px;
+    }
+
+    h4 {
+        margin-bottom: 2rem;
+    }
+
+}
+.colour-line {
+    background: url("/assets/coloured-line.png");
+    background-size: 100% 100%;
+    height: 3px;
+    width: 100%;
+    position: absolute;
 }
 
 // pages
@@ -347,18 +393,58 @@ hr {
     }
 
     .case-study {
+        border-top-color: transparent;
+        border-top-width: 3px;
+        border-top-style: solid;
+        position: relative;
+        .row {
+            min-height: 400px;
+        }
+
+        .below-the-fold {
+            .nudge-left {
+                transform: translateX(0);
+            }
+            .nudge-right {
+                transform: translateX(0);
+            }
+        }
+
+        .above-the-fold {
+            .nudge-left {
+                transition: transform 1s ease-in-out;
+                transform: translateX(-$spacer);
+            }
+            .nudge-right {
+                transition: transform 1s ease-in-out;
+                transform: translateX($spacer);
+            }
+        }
 
         .featured-image {
-            border-top-color: transparent;
-            border-top-width: 3px;
-            border-top-style: solid;
-            min-height: 450px;
+            min-height: 400px;
             max-height: 550px;
             height: 60vh;
-            background-position: center;
+            background-position: right;
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: auto 100%;
             position: relative;
+            margin-right: -$spacer;
+
+            @media (max-width: #{map-get($grid-breakpoints, sm)}) {
+                background-size: 30%;
+                background-position: top right;
+            }
+
+            &.left {
+                background-position: left;
+                margin-left: -$spacer;
+
+                @media (max-width: #{map-get($grid-breakpoints, sm)}) {
+                    background-position: top left;
+                }
+            }
+
         }
 
         .skills {
@@ -380,8 +466,8 @@ hr {
 
         @each $classname, $colour in $colours {
             &.#{$classname} {
+                border-top-color: $colour;
                 .featured-image {
-                    border-top-color: $colour;
                 }
 
                 .skills {
@@ -415,15 +501,29 @@ hr {
         }
     }
 
-    .employee-details {
-        padding: $spacer * 1.3;
-
-        p {
-            margin-bottom: 0;
+    .team {
+        border-top-color: transparent;
+        border-top-width: 3px;
+        border-top-style: solid;
+        @each $classname, $colour in $colours {
+            &.#{$classname} {
+                border-top-color: $colour;
+            }
         }
 
-        p, hr {
-            margin-bottom: 14px;
+        .team-image-wrap {
+            padding: 0;
+        }
+        .employee-details {
+            padding: $spacer * 1.3;
+
+            p {
+                margin-bottom: 0;
+            }
+
+            p, hr {
+                margin-bottom: 14px;
+            }
         }
     }
 }
@@ -501,23 +601,7 @@ hr {
 
 }
 
-.portfolio .chat-container,
-.project .chat-container {
-    background: url("/assets/scribble.png") no-repeat;
-    background-size: 100% 100%;
-    background-color: #27363d;
-    height: 501px;
-    width: 100%;
-
-    h4 {
-        margin-bottom: 2rem;
-    }
-}
-
 .portfolio {
-    .work-image {
-        padding: 0 1rem;
-    }
 }
 
 .project {
@@ -618,7 +702,7 @@ hr {
 }
 /* NAVIGATION */
 $transition-time : 0.3s;
-$grey: #D9D9D9;
+$grey: #d9d9d9;
 
 .main-navigation{
     display: none;

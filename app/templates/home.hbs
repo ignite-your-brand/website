@@ -32,85 +32,89 @@
         </div>
     </div>
 </div>
-{{#each model.caseStudies as |caseStudy|}}
-<div class="case-study {{caseStudy.highlightColour}} mt-10">
-    <div class="featured-image" style={{background-image caseStudy.featuredImage.file.url}}>
-        <div class="skills">{{caseStudy.skillsList}}</div>
-    </div>
-    <div class="container">
-        <div class="row mt-5">
-            <div class="col">
-                <h3>{{caseStudy.name}}</h3>
-                <hr>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-sm-6">
-                <div class="row">
-                    <div class="col-12 col-sm-6">
-                        {{markdown-to-html caseStudy.action}}
+{{#each model.caseStudies as |caseStudy index|}}
+<div class="case-study {{caseStudy.highlightColour}} mt-sm-6 py-md-5">
+    {{#if (is-even index)}}
+        {{#slide-in-wrapper }}
+        <div class="container-fluid featured-image right align-items-center nudge-left" style={{ background-image caseStudy.featuredImage.file.url }}>
+            <div class="container">
+                <div class="row mt-5 align-items-center">
+                    <div class="col-12 col-sm-3">
+                        <h3 class="align-middle">{{caseStudy.name}}</h3>
+                        <hr>
+                        {{markdown-to-html caseStudy.featuredAction}}
+
+                        {{#link-to 'project' caseStudy.slug }}
+                            <!-- <button class="btn btn-outline-primary">learn more</button> -->
+                        {{/link-to }}
                     </div>
-                    <div class="col-12 col-sm-6 result">
-                        {{markdown-to-html caseStudy.result}}
+                    <div class="col-12 col-sm-3 result">
+                        {{markdown-to-html caseStudy.featuredResult}}
                         <p><span class="callout">{{#if caseStudy.callout}}{{caseStudy.callout}}{{/if}}</span></p>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-sm-6">
-                {{markdown-to-html caseStudy.overview}}
+        </div>
+        {{/slide-in-wrapper }}
+    {{else}}
+        {{#slide-in-wrapper }}
+            <div class="container-fluid featured-image left align-items-center nudge-right" style={{ background-image caseStudy.featuredImage.file.url }}>
+                <div class="container">
+                    <div class="row mt-5 align-items-center">
+                        <div class="col-12 col-sm-6"></div>
+                        <div class="col-12 col-sm-3">
+                            <h3 class="align-middle">{{caseStudy.name}}</h3>
+                            <hr>
+                            {{markdown-to-html caseStudy.featuredAction}}
+
+                            {{#link-to 'project' caseStudy.slug }}
+                                <!-- <button class="btn btn-outline-primary">learn more</button> -->
+                            {{/link-to }}
+                        </div>
+                        <div class="col-12 col-sm-3 result">
+                            {{markdown-to-html caseStudy.featuredResult}}
+                            <p><span class="callout">{{#if caseStudy.callout}}{{caseStudy.callout}}{{/if}}</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/slide-in-wrapper }}
+    {{/if}}
+</div>
+{{/each}}
+
+<div class="team blue mt-6">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row mt-6">
+                <div class="col col-lg-8">
+                    <h3>{{model.content.teamTitle}}</h3>
+                    <hr class="hr-blue">
+                    {{markdown-to-html model.content.teamIntroduction}}
+                </div>
             </div>
         </div>
-        <div class="row mt-5 case-study-images hidden-xs-down">
-            {{#each caseStudy.images as |image|}}
-            <div class="col-12 col-sm-4 pb-2 case-study-image-wrapper">
-            {{#slide-in-wrapper}}
-                <img class="img-fluid nudge-up" src="{{image.file.url}}" alt="{{image.file.title}}">
-            {{/slide-in-wrapper}}
+        <div class="row mt-10">
+            {{#each model.team as |employee|}}
+            <div class="col-12 col-sm-6 col-lg-3 team-image-wrap">
+                {{#flipper/card-wrapper}}
+                    {{#flipper/card-front}}
+                        <img class="img-fluid" src="{{employee.photo.file.url}}" alt="{{employee.photo.file.title}}">
+                    {{/flipper/card-front}}
+                    {{#flipper/card-back}}
+                        <div class="employee-details">
+                            <h4>{{employee.name}}</h4>
+                            <p>{{employee.title}}</p>
+                            <p><a href="mailto:{{employee.email}}">{{employee.email}}</a></p>
+                            <hr class="hr-{{employee.highlightColour}}">
+                            {{employee-social-profiles employee=employee}}
+                        </div>
+                    {{/flipper/card-back}}
+                {{/flipper/card-wrapper}}
             </div>
             {{/each}}
         </div>
-        <div class="row mt-5">
-            <div class="col hidden-xs-down">
-            {{#slide-in-wrapper}}
-                <img class="img-fluid nudge-up nudge-up-slow" src="{{caseStudy.testimonialImage.file.url}}" alt="{{caseStudy.testimonialImage.file.title}}">
-            {{/slide-in-wrapper}}
-            </div>
-        </div>
-        <div class="row mt-6 pb-5">
-            <div class="col text-center">
-                {{markdown-to-html caseStudy.testimonial}}
-                <hr>
-            </div>
-        </div>
     </div>
 </div>
-{{/each}}
-<div class="container">
-    <div class="row mt-10">
-        <div class="col col-lg-8">
-            <h3>{{model.content.teamTitle}}</h3>
-            <hr class="hr-green">
-            {{markdown-to-html model.content.teamIntroduction}}
-        </div>
-    </div>
-    <div class="row mt-5">
-        {{#each model.team as |employee|}}
-        <div class="col-12 col-sm-6 col-lg-3 mb-4">
-            {{#flipper/card-wrapper}}
-                {{#flipper/card-front}}
-                    <img class="img-fluid" src="{{employee.photo.file.url}}" alt="{{employee.photo.file.title}}">
-                {{/flipper/card-front}}
-                {{#flipper/card-back}}
-                    <div class="employee-details">
-                        <h4>{{employee.name}}</h4>
-                        <p>{{employee.title}}</p>
-                        <p><a href="mailto:{{employee.email}}">{{employee.email}}</a></p>
-                        <hr class="hr-{{employee.highlightColour}}">
-                        {{employee-social-profiles employee=employee}}
-                    </div>
-                {{/flipper/card-back}}
-            {{/flipper/card-wrapper}}
-        </div>
-        {{/each}}
-    </div>
-</div>
+
+{{ scribble-footer }}

@@ -6,7 +6,7 @@ export default Ember.Route.extend({
             content: this.get('store').query('portfolioPage', {'fields.slug': 'portfolio'}).then(function(array) {
               return array.get('firstObject');
             }),
-            projects: this.get('store').query( 'project', { order: 'fields.date'} )
+            projects: this.get('store').query( 'project', { order: 'fields.rank'} )
         });
     },
     setupController( controller, model ) {

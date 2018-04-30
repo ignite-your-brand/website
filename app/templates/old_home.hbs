@@ -1,0 +1,117 @@
+<div class="container">
+    <div class="row">
+        <div class="col introduction">
+            {{type-writer titles=model.content.introTitles}}
+            <h2 class="sub-type-area">{{model.content.subtitle}}</h2>
+            {{show-reel}}
+            {{scroll-icon class="text-center"}}
+            {{logo-video mp4Src="/assets/IYB-logo.mp4" class="hidden-xs-down"}}
+        </div>
+    </div>
+    <div class="row mt-4 justify-content-center">
+        <div class="col col-sm-10 col-md-8 col-lg-6 testimonial text-center">
+            {{markdown-to-html model.content.testimonial}}
+            <hr class="hr-blue">
+        </div>
+    </div>
+    <div class="row mt-10 hidden-xs-down align-items-center">
+        <div class="col-4 client-introduction">
+            {{markdown-to-html model.content.introduction}}
+        </div>
+        <div class="col-8 client-logos">
+            {{#each model.content.firstFourLogos as |logo|}}
+                <img src="{{logo.file.url}}" alt="{{logo.file.title}}">
+            {{/each}}
+        </div>
+    </div>
+    <div class="row hidden-xs-down justify-content-end">
+        <div class="col-8 client-logos">
+            {{#each model.content.lastThreeLogos as |logo|}}
+                <img src="{{logo.file.url}}" alt="{{logo.file.title}}">
+            {{/each}}
+        </div>
+    </div>
+</div>
+{{#each model.caseStudies as |caseStudy|}}
+<div class="case-study {{caseStudy.highlightColour}} mt-10">
+    <div class="featured-image" style={{background-image caseStudy.featuredImage.file.url}}>
+        <div class="skills">{{caseStudy.skillsList}}</div>
+    </div>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col">
+                <h3 class="align-middle">{{caseStudy.name}}</h3>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <div class="row">
+                    <div class="col-12 col-sm-6">
+                        {{markdown-to-html caseStudy.action}}
+                        <p><span class="callout">{{#if caseStudy.callout}}{{caseStudy.callout}}{{/if}}</span></p>
+                    </div>
+                    <div class="col-12 col-sm-6 result">
+                        {{markdown-to-html caseStudy.result}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6">
+                {{markdown-to-html caseStudy.overview}}
+            </div>
+        </div>
+
+        <div class="row mt-5 case-study-images hidden-xs-down">
+            {{#each caseStudy.images as |image|}}
+            <div class="col-12 col-sm-4 pb-2 case-study-image-wrapper">
+            {{#slide-in-wrapper}}
+                <img class="img-fluid nudge-up" src="{{image.file.url}}" alt="{{image.file.title}}">
+            {{/slide-in-wrapper}}
+            </div>
+            {{/each}}
+        </div>
+        <div class="row mt-5">
+            <div class="col hidden-xs-down">
+            {{#slide-in-wrapper}}
+                <img class="img-fluid nudge-up nudge-up-slow" src="{{caseStudy.testimonialImage.file.url}}" alt="{{caseStudy.testimonialImage.file.title}}">
+            {{/slide-in-wrapper}}
+            </div>
+        </div>
+        <div class="row mt-6 pb-5">
+            <div class="col text-center">
+                {{markdown-to-html caseStudy.testimonial}}
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}
+<div class="container">
+    <div class="row mt-10">
+        <div class="col col-lg-8">
+            <h3>{{model.content.teamTitle}}</h3>
+            <hr class="hr-green">
+            {{markdown-to-html model.content.teamIntroduction}}
+        </div>
+    </div>
+    <div class="row mt-5">
+        {{#each model.team as |employee|}}
+        <div class="col-12 col-sm-6 col-lg-3 mb-4">
+            {{#flipper/card-wrapper}}
+                {{#flipper/card-front}}
+                    <img class="img-fluid" src="{{employee.photo.file.url}}" alt="{{employee.photo.file.title}}">
+                {{/flipper/card-front}}
+                {{#flipper/card-back}}
+                    <div class="employee-details">
+                        <h4>{{employee.name}}</h4>
+                        <p>{{employee.title}}</p>
+                        <p><a href="mailto:{{employee.email}}">{{employee.email}}</a></p>
+                        <hr class="hr-{{employee.highlightColour}}">
+                        {{employee-social-profiles employee=employee}}
+                    </div>
+                {{/flipper/card-back}}
+            {{/flipper/card-wrapper}}
+        </div>
+        {{/each}}
+    </div>
+</div>
