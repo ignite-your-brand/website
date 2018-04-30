@@ -3,13 +3,13 @@
     <div class="container">
         <div class="col col-lg-8 text-left intro-text">
             <h3>{{model.name}}</h3>
-            <hr class="hr-yellow center">
+            <hr class="hr-{{model.highlightColour}} center">
             {{ markdown-to-html model.shortDescription }}
         </div>
     </div>
 </div>
 
-<div class="categories pink">
+<div class="categories {{model.highlightColour}}">
     {{ plusify model.category }}
 </div>
 
@@ -21,7 +21,7 @@
         <div class="col-12 col-lg-6 text-left py-10">
             <div class="col-6">
                 <h3>{{ model.featuredResult }}</h3>
-                <span class="callout">{{ model.callout }}</span>
+                <span class="callout {{model.highlightColour}}">{{ model.callout }}</span>
             </div>
         </div>
         <div class="col-12 col-lg-6">
@@ -41,7 +41,7 @@
 <div class="container">
     <div class="row my-5 align-items-center chalenge">
         <div class="col-12 col-md-6 text-left py-5 pr-5">
-            <h3 class="mb-5 section-title">The Challenge</h3>
+            <h3 class="mb-5 section-title {{model.highlightColour}}">The Challenge</h3>
             {{ markdown-to-html model.chalengeText }}
         </div>
         <div class="col-12 col-md-6 text-center py-5">
@@ -71,7 +71,7 @@
             <img src="{{ model.solutionImage.file.url }}" alt="Chalenge Image">
         </div>
         <div class="col-12 col-md-6 py-10 pl-5 pt-4">
-            <h3 class="mb-5 section-title">Solution</h3>
+            <h3 class="mb-5 section-title {{model.highlightColour}}">Solution</h3>
             {{ markdown-to-html model.solutionText }}
         </div>
     </div>
@@ -95,7 +95,7 @@
 <div class="container mt-10">
     <div class="row my-5 result">
         <div class="col-12 col-md-8 mx-md-auto text-center">
-            <h3 class="mb-5 section-title">Result</h3>
+            <h3 class="mb-5 section-title {{model.highlightColour}}">Result</h3>
             {{ markdown-to-html model.resultText }}
         </div>
     </div>
@@ -107,7 +107,7 @@
     <div class="row my-5 result">
         <div class="col-12 col-md-8 mx-md-auto text-center">
             {{ markdown-to-html model.testimonial }}
-            <hr class="hr-yellow center">
+            <hr class="hr-{{model.highlightColour}} center">
         </div>
     </div>
 </div>

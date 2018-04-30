@@ -608,9 +608,14 @@ hr {
     $green: #b8b924;
 
     .callout {
-        color: $yellow;
         font-weight: $font-weight-bold;
         font-size: $display4-size;
+
+        @each $classname, $colour in $colours {
+            &.#{$classname} {
+                color: $colour;
+            }
+        }
     }
 
     .clear-absolute {
@@ -618,7 +623,11 @@ hr {
     }
 
     .section-title {
-        color: $yellow;
+        @each $classname, $colour in $colours {
+            &.#{$classname} {
+                color: $colour;
+            }
+        }
     }
 
     p {
@@ -655,7 +664,11 @@ hr {
         font-size: 0.875rem;
         padding: 0.33333rem 1rem;
         text-align: center;
-        background-color: $yellow
+        @each $classname, $colour in $colours {
+            &.#{$classname} {
+                background-color: $colour;
+            }
+        }
     }
     .logo-image-wrapper {
         img {
