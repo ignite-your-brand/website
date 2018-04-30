@@ -8,8 +8,8 @@ export default Ember.Component.extend({
             this.$().fadeIn( 600 );
         }, this.get('timeout'));
 
-        $(".openChat").on('click', function() {
-            userlike.userlikeStartChat(); 
+        Ember.$(".openChat").on('click', function() {
+            userlike.userlikeStartChat();
          });
 
     },

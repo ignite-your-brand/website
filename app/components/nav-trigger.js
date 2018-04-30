@@ -14,24 +14,22 @@ export default Ember.Component.extend({
         let self = this;
         this.set('listItems', document.querySelectorAll('.nav-list-collection'));
 
-        $(".nav-trigger").on('click', function() {
+        Ember.$(".nav-trigger").on('click', function() {
             self.triggerNav();
          });
 
 
-        $(this.get('listItems')).on('click', function() {
+        Ember.$(this.get('listItems')).on('click', function() {
             self.triggerNav();
         });
     },
 
     triggerNav() {
-        let self = this;
-
         let listItems = this.get('listItems');
         
         if(!this.get('open')){
             
-            $('html, body').addClass('open');
+            Ember.$('html, body').addClass('open');
             let timeout = 100;
             for (let ii=0; ii<listItems.length; ii++){
                 let currentLi = listItems[ii];
@@ -43,7 +41,7 @@ export default Ember.Component.extend({
             this.set('open', true);
         }else{
             setTimeout(function(){
-                $('html, body').removeClass('open');
+                Ember.$('html, body').removeClass('open');
             }, 150);
 
 
