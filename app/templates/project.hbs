@@ -101,6 +101,10 @@
     </div>
 </div>
 {{/if}}
+
+{{#if model.sliderImages.length }}  
+    {{#slick-slider sliderImages = model.sliderImages}}{{/slick-slider}}            
+{{/if}}
 <!-- TESTIMONIAL -->
 {{#if model.testimonial}}
 <div class="container mt-10">

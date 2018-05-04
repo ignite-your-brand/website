@@ -314,6 +314,290 @@ hr {
     position: absolute;
 }
 
+/* NAVIGATION */
+$transition-time : 0.3s;
+$grey: #d9d9d9;
+
+.main-navigation{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    width: 100%;
+    height: 100vh;
+    
+    .nav-holder{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 100vh;
+
+        @media (min-width: #{map-get($grid-breakpoints, md)}) {
+            display: block;
+            padding-top: 180px;
+        }
+
+        .nav-list-wrap{
+            margin-bottom: 20px;
+        }
+
+        .nav-list-collection{
+            width: 100%;
+            float: none;
+            display: block;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateX(70px);
+            transition: transform 0.5s, opacity 0.5s;
+
+            @media (min-width: #{map-get($grid-breakpoints, md)}) {
+                transform: translateY(-70px);
+                margin-bottom: 30px;
+                width: 25%;
+                float: left;
+                margin-bottom: 0;
+            }
+
+            ul{
+                display: none;
+
+                @media (min-width: #{map-get($grid-breakpoints, md)}) {
+                    display: block;
+                }
+            }
+        }
+        .nav-list-collection:last-child{
+            margin-bottom: 0;
+        }
+    }
+    a{
+        font-size: 16px;
+        line-height: 30px;
+        text-decoration: none;
+        transition: color ease-in-out 0.2s;
+        &:hover {
+            color: $yellow;
+        }
+    }
+    a.title-link{
+        display: inline-block;
+        font-size: 32px;
+        line-height: 38px;
+
+        @media (min-width: #{map-get($grid-breakpoints, md)}) {
+            margin-bottom: 20px; 
+        }
+    }
+}
+
+.nav-curtain{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    background: $black;
+    transform: translateY(-100%);
+    opacity: 1;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+//opned state
+.open{
+    .main-navigation{
+        display: block;
+        overflow: hidden;
+
+        .nav-list-collection.show{
+            opacity: 1;
+            transform: translateY(0);
+
+            @media (min-width: #{map-get($grid-breakpoints, md)}) {
+                transform: translateX(0)
+            }
+        }
+        .address-holder.show{
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    .nav-curtain{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+.nav-trigger{
+    position: relative;
+    height: 20px;
+    width: 30px;
+    cursor: pointer;
+    z-index: 7;
+    font-size: 22px;
+
+    @media (max-width: #{map-get($grid-breakpoints, sm)}) {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+    }
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+            -webkit-tap-highlight-color: rgba(255,255,255,0);
+}
+
+
+.nav-ham{
+    display: block;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    
+    .bar{
+        position: absolute;
+        width: 30px;
+        height: 3px;
+        background: $white;
+        transition: all $transition-time;
+    }
+    .bar-top{ top: 0; left:0;}
+    .bar-mid{ top: 50%; transform: translateY(-50%); right:0;}
+    .bar-bot{ bottom: 0;left:0;}
+    .bar-vertical, .bar-vertical-bottom{
+        position: absolute;
+        left: 0;
+        width: 2px;
+        height: 0;
+        background: $white;
+        transition: all $transition-time;
+    }
+    .bar-vertical{
+        top: 1px;
+        transform: rotate(-45deg);
+        transform-origin: left top;
+    }
+    .bar-vertical-bottom{
+        bottom: 2px;
+        transform: rotate(45deg);
+        transform-origin: left bottom;
+        
+    }
+}
+
+// Open state
+.open {
+    .nav-ham{
+        &:hover{
+            .bar, .bar-vertical, .bar-vertical-bottom{
+                background: $white;
+            }
+        }
+        .bar{
+            background: $white;
+        }
+        .bar-top, .bar-bot{width: 0;}
+        .bar-mid{ 
+            width: 0;
+            opacity: 0;
+            
+        }
+        .bar-vertical, .bar-vertical-bottom{
+            height: 26px;
+            background: $white;
+        }
+    }
+}
+
+/*Slider*/
+.slick-slider {
+    .slider-image {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+.slick-prev, 
+.slick-next {
+    width: 80px;
+    height: 17px;
+    z-index: 999;
+    &:before {
+        content: '';
+        background-size: 70% 80%;
+        width: 80px;
+        height: 17px;
+        display: block;
+
+        @media (max-width: #{map-get($grid-breakpoints, md)}) {
+            background-size: 30% 60% !important;
+        }
+    }
+}
+.slick-prev {
+    /*left: -95px;*/
+
+    @media (min-width: #{map-get($grid-breakpoints, md)}) {
+        left: -60px !important;
+    }
+
+    &:before {
+        background-image: url(/assets/arrow-left.png);
+        background-repeat: no-repeat;
+        background-position: left;
+    }
+}
+
+.slick-next {
+    /*right: -95px;*/
+    @media (min-width: #{map-get($grid-breakpoints, md)}) {
+        right: -60px !important;
+    }
+
+    &:before {
+        background-image: url(/assets/arrow-right.png);
+        background-repeat: no-repeat;
+        background-position: right;
+  }
+}
+.slick-dots {
+    bottom: -80px;
+
+    li {
+        top: 0;
+        width: 80px;
+        height: 40px;
+        border-bottom: 3px solid $white;
+        transition: all ease-in-out 0.3s;
+
+        .dot-index {
+            position: absolute;
+            bottom: 10px;
+            left: 41%;
+            display: none;
+        }
+
+        &.slick-active {
+            top: -10px;
+
+            .dot-index {
+                display: inline-block;
+            } 
+        }
+
+    }
+}
+
 // pages
 
 .home {
@@ -640,10 +924,10 @@ hr {
         width: 100%;
         height: 100vh;
         background-size: 100% auto;
-        background-position: top;
+        background-position: center;
         background-repeat: no-repeat;
         
-        @media (max-width: #{map-get($grid-breakpoints, sm)}) {
+        @media (max-width: 1400px ) {
             background-size: auto 100vh;
             background-position: center;
         }
@@ -710,211 +994,6 @@ hr {
         strong {
             font-weight: 400;
             font-size: 1.4rem;
-        }
-    }
-}
-/* NAVIGATION */
-$transition-time : 0.3s;
-$grey: #d9d9d9;
-
-.main-navigation{
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 5;
-    width: 100%;
-    height: 100vh;
-    
-    .nav-holder{
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        height: 100vh;
-
-        @media (min-width: #{map-get($grid-breakpoints, md)}) {
-            display: block;
-            padding-top: 180px;
-        }
-
-        .nav-list-wrap{
-            margin-bottom: 20px;
-        }
-
-        .nav-list-collection{
-            width: 100%;
-            float: none;
-            display: block;
-            margin-bottom: 20px;
-            opacity: 0;
-            transform: translateX(70px);
-            transition: transform 0.5s, opacity 0.5s;
-
-            @media (min-width: #{map-get($grid-breakpoints, md)}) {
-                transform: translateY(-70px);
-                margin-bottom: 30px;
-                width: 25%;
-                float: left;
-                margin-bottom: 0;
-            }
-
-            ul{
-                display: none;
-
-                @media (min-width: #{map-get($grid-breakpoints, md)}) {
-                    display: block;
-                }
-            }
-        }
-        .nav-list-collection:last-child{
-            margin-bottom: 0;
-        }
-    }
-    a{
-        font-size: 16px;
-        line-height: 30px;
-        text-decoration: none;
-        transition: color ease-in-out 0.2s;
-        &:hover {
-            color: $yellow;
-        }
-    }
-    a.title-link{
-        display: inline-block;
-        font-size: 32px;
-        line-height: 38px;
-
-        @media (min-width: #{map-get($grid-breakpoints, md)}) {
-            margin-bottom: 20px; 
-        }
-    }
-}
-
-.nav-curtain{
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    z-index: 3;
-    background: $black;
-    transform: translateY(-100%);
-    opacity: 1;
-    transition: opacity 0.3s, transform 0.3s;
-}
-
-//opned state
-.open{
-    .main-navigation{
-        display: block;
-        overflow: hidden;
-
-        .nav-list-collection.show{
-            opacity: 1;
-            transform: translateY(0);
-
-            @media (min-width: #{map-get($grid-breakpoints, md)}) {
-                transform: translateX(0)
-            }
-        }
-        .address-holder.show{
-            opacity: 1;
-            transform: translateX(0);
-        }
-    }
-    .nav-curtain{
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-.nav-trigger{
-    position: relative;
-    height: 20px;
-    width: 30px;
-    cursor: pointer;
-    z-index: 7;
-    font-size: 22px;
-
-    @media (max-width: #{map-get($grid-breakpoints, sm)}) {
-        position: absolute;
-        top: 25px;
-        right: 25px;
-    }
-
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-     -khtml-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
-            -webkit-tap-highlight-color: rgba(255,255,255,0);
-}
-
-
-.nav-ham{
-    display: block;
-    width: 30px;
-    height: 20px;
-    cursor: pointer;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-     -khtml-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
-    
-    .bar{
-        position: absolute;
-        width: 30px;
-        height: 3px;
-        background: $white;
-        transition: all $transition-time;
-    }
-    .bar-top{ top: 0; left:0;}
-    .bar-mid{ top: 50%; transform: translateY(-50%); right:0;}
-    .bar-bot{ bottom: 0;left:0;}
-    .bar-vertical, .bar-vertical-bottom{
-        position: absolute;
-        left: 0;
-        width: 2px;
-        height: 0;
-        background: $white;
-        transition: all $transition-time;
-    }
-    .bar-vertical{
-        top: 1px;
-        transform: rotate(-45deg);
-        transform-origin: left top;
-    }
-    .bar-vertical-bottom{
-        bottom: 2px;
-        transform: rotate(45deg);
-        transform-origin: left bottom;
-        
-    }
-}
-
-// Open state
-.open {
-    .nav-ham{
-        &:hover{
-            .bar, .bar-vertical, .bar-vertical-bottom{
-                background: $white;
-            }
-        }
-        .bar{
-            background: $white;
-        }
-        .bar-top, .bar-bot{width: 0;}
-        .bar-mid{ 
-            width: 0;
-            opacity: 0;
-            
-        }
-        .bar-vertical, .bar-vertical-bottom{
-            height: 26px;
-            background: $white;
         }
     }
 }
