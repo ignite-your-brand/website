@@ -1,11 +1,14 @@
 <div class="container">
     <div class="row">
         <div class="col introduction">
-            {{type-writer titles=model.content.introTitles}}
-            <h2 class="sub-type-area">{{model.content.subtitle}}</h2>
-            {{show-reel}}
+            <div class="z-in">
+                {{type-writer titles=model.content.introTitles}}
+                <h2 class="sub-type-area">{{model.content.subtitle}}</h2>
+                {{show-reel}}
+            </div>
+            <img style="max-width: 70%; width: 100%; position: absolute; bottom: -20%; right: -100px;" class="img-responsive" src="/assets/IYB-Crop.gif" alt="">
             {{scroll-icon class="text-center"}}
-            {{logo-video mp4Src="/assets/IYB-logo.mp4" class="hidden-xs-down"}}
+
         </div>
     </div>
     <div class="row mt-4 justify-content-center">
@@ -14,7 +17,7 @@
             <hr class="hr-blue">
         </div>
     </div>
-    <div class="row mt-10 hidden-xs-down align-items-center">
+    <div class="row mt-10 hidden-xs-down align-items-center clients">
         <div class="col-4 client-introduction">
             {{markdown-to-html model.content.introduction}}
         </div>
@@ -32,7 +35,7 @@
         </div>
     </div>
 </div>
-{{#each model.caseStudies as |caseStudy index|}}
+{{#each model.caseStudies as | caseStudy index|}}
 <div class="case-study {{caseStudy.highlightColour}} mt-sm-6 py-md-5">
     {{#if (is-even index)}}
         {{#slide-in-wrapper }}
@@ -43,7 +46,6 @@
                         <h3 class="align-middle">{{caseStudy.name}}</h3>
                         <hr>
                         {{markdown-to-html caseStudy.featuredAction}}
-
                         {{#link-to 'project' caseStudy.slug }}
                             <button class="btn btn-outline-primary">learn more</button>
                         {{/link-to }}

@@ -12,13 +12,44 @@
     <div class="row mt-5 align-items-center">
         {{#each model.projects as |project|}}
             <div class="col-12 col-sm-6 col-lg-4 mb-4 text-center project-image">
-                {{#link-to 'project' project.slug }}
-                    {{# if project.portfolioImage }}
-                        <img class="img-fluid" src="{{ project.portfolioImage.file.url }}" alt="{{ project.name }}">
-                    {{ else }}
-                        <img class="img-fluid" src="{{ project.featuredImage.file.url }}" alt="{{ project.name }}">
-                    {{/if}}
-                {{/link-to}}
+                                    {{#link-to 'project' project.slug }}
+                <div class="square">
+
+                    <div class="image">
+
+                        {{# if project.logoImage }}
+                            <img class="img-fluid" src="{{project.squareImage.file.url}}"  alt="{{ project.name }}">
+                        {{ else }}
+                            <img class="img-fluid" src="{{project.squareImage.file.url}}" alt="{{ project.name }}">
+                        {{/if}}
+
+                    </div>
+
+                    <div class="cover">
+                        <h3 class="title">{{project.name}}</h3>
+                        <hr class="hr-{{project.highlightColour}} center">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="dropdown">
+                                <span>{{fa-icon "share-alt"}}</span>
+                                <ul class="share">
+                                    <li>
+                                        <a target="_blank" href="{{share-url project.slug project.name 'linkedin'}}">{{fa-icon "linkedin"}}</a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" href="{{share-url project.slug project.name 'twitter'}}">{{fa-icon "twitter"}}</a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" href="{{share-url project.slug project.name 'facebook'}}">{{fa-icon "facebook-f"}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <p class="description">{{project.shortDescription}}</p>
+
+                        </div>
+
+                    </div>
+                </div>
+                 {{/link-to}}
             </div>
         {{/each}}
     </div>

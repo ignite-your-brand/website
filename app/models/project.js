@@ -6,6 +6,7 @@ import Ember from 'ember';
 
 export default Contentful.extend({
     name: attr('string'),
+    status: attr('isPublished'),
     slug: Ember.computed('name', function () {
         return this.get('name').toLowerCase().replace(/ /, '-');
     }),
@@ -18,6 +19,7 @@ export default Contentful.extend({
     featuredImage: belongsTo('contentful-asset'),
     featuredAction: attr('string'),
     featuredResult: attr('string'),
+    featured: attr('boolean'),
     callout: attr('string'),
     action: attr('string'),
     logoImage: belongsTo('contentful-asset'),
@@ -29,6 +31,7 @@ export default Contentful.extend({
     solutionImage: belongsTo('contentful-asset'),
 	responsiveDevicesImage: belongsTo('contentful-asset'),
 	resultText: attr('string'),
-	sliderImages: hasMany('contentful-asset'),
+    sliderImages: hasMany('contentful-asset'),
+    squareImage: belongsTo('contentful-asset'),
 	testimonial: attr('string'),
 });

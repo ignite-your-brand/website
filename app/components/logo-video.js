@@ -8,7 +8,10 @@ export default VideoContainer.extend({
     timeout: 7000,
     didInsertElement() {
         Ember.run.later(this, function () {
+            console.log(this.$(0).muted())
             this.$()[0].play();
+            this.$()[0].trigger('play');
+
         }, this.get('timeout'));
     }
 });

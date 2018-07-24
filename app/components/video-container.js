@@ -7,7 +7,7 @@ export default Ember.Component.extend({
     attributeBindings: ['autoplay', 'controls', 'loop', 'muted', 'preload', 'src'],
     autoplay: true,
     controls: true,
-    loop: false,
+    loop: true,
     muted: true,
     preload: 'auto',
     src: Ember.computed.alias('mp4Src'),
@@ -15,7 +15,7 @@ export default Ember.Component.extend({
     timeout: 200,
     didInsertElement() {
         Ember.run.later(this, function () {
-            this.$()[0].muted = false;
+            this.$()[0].muted = true;
         }, this.get('timeout'));
     }
 });
