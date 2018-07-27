@@ -311,6 +311,9 @@ hr {
     background-color: #202d32;
     height: 501px;
     width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
 
     @media (max-width: #{map-get($grid-breakpoints, sm)}) {
         height: 200px;
@@ -327,6 +330,7 @@ hr {
     height: 3px;
     width: 100%;
     position: absolute;
+    bottom: 0;
 }
 
 /* NAVIGATION */
@@ -826,6 +830,7 @@ $grey: #d9d9d9;
         @each $classname, $colour in $colours {
             &.#{$classname} {
                 border-top-color: $colour;
+                margin-top: 0 !important;
             }
         }
 
@@ -1017,7 +1022,10 @@ $grey: #d9d9d9;
         img {
             width: 90%;
             height: auto;
+            margin: 0 auto;
+            display: block;
         }
+
     }
     .devices {
         img {
@@ -1143,6 +1151,7 @@ $grey: #d9d9d9;
     }
     .client-introduction {
         text-align: center;
+        margin-top: 2rem;
     }
 
     .clients {
@@ -1156,5 +1165,74 @@ $grey: #d9d9d9;
     .home .introduction {
         padding-bottom: 6.5rem;
         height: auto;
+    }
+}
+.testimonial {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    p {
+        margin-top: 1rem;
+    }
+    .author {
+        margin-top: 0;
+    }
+}
+.testimonial-slider {
+    .slick-dots {
+        bottom: -40px !important;
+        li {
+            width: 10px;
+            height: 10px;
+            background: transparent;
+            border-radius: 50%;
+            border: 1px solid #FFF;
+            margin-right: 0.5rem;
+            &:last-child {
+                margin-right: 0;
+            }
+            &.slick-active {
+                top: 0;
+                background: #FFF;
+            }
+            button {
+                &:before {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: #{map-get($grid-breakpoints, md)}) {
+    .logo-anim {
+        display: none;
+    }
+    .home .case-study.orange .callout {
+        line-height: 1;
+    }
+}
+@media (max-width: #{map-get($grid-breakpoints, sm)}) {
+    .slick-prev, .slick-next {
+        display: none !important;
+    }
+    .scribble-footer {
+        position: relative;
+        background: url("/assets/rsz_scribble.png") no-repeat #202d32;
+        background-size: auto 100%;
+        height: auto;
+        padding: 1.5rem 0;
+        .colour-line {
+            bottom: 0;
+        }
+    }
+    .slick-dots li  {
+        width: 15px;
+        span {
+            left: 0 !important;
+            bottom: 0 !important;
+        }
+        button {
+        }
     }
 }

@@ -6,18 +6,15 @@
                 <h2 class="sub-type-area">{{model.content.subtitle}}</h2>
                 {{show-reel}}
             </div>
-            <img style="max-width: 70%; width: 100%; position: absolute; bottom: -20%; right: -100px;" class="img-responsive" src="/assets/IYB-Crop.gif" alt="">
+            <img style="max-width: 70%; width: 100%; position: absolute; bottom: -20%; right: -100px;" class="img-responsive logo-anim" src="/assets/IYB-Crop.gif" alt="">
             {{scroll-icon class="text-center"}}
 
         </div>
     </div>
-    <div class="row mt-4 justify-content-center">
-        <div class="col col-sm-10 col-md-8 col-lg-6 testimonial text-center">
-            {{markdown-to-html model.content.testimonial}}
-            <hr class="hr-blue">
-        </div>
+    <div style="margin-top: 5rem;">
+        {{#testimonial-slider sliderImages = model.testimonials}}{{/testimonial-slider}}
     </div>
-    <div class="row mt-10 hidden-xs-down align-items-center clients">
+    <div class="row mt-10 hiddenxs-down align-items-center clients">
         <div class="col-4 client-introduction">
             {{markdown-to-html model.content.introduction}}
         </div>
@@ -34,6 +31,7 @@
             {{/each}}
         </div>
     </div>
+
 </div>
 {{#each model.caseStudies as | caseStudy index|}}
 <div class="case-study {{caseStudy.highlightColour}} mt-sm-6 py-md-5">

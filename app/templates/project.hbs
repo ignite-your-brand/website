@@ -4,7 +4,9 @@
         <div class="col col-lg-8 text-left intro-text">
             <h3>{{model.name}}</h3>
             <hr class="hr-{{model.highlightColour}} center">
-            {{ markdown-to-html model.shortDescription }}
+            <div class="col-12">
+                {{ markdown-to-html model.shortDescription }}
+            </div>
         </div>
     </div>
 </div>
@@ -25,7 +27,10 @@
             </div>
         </div>
         <div class="col-12 col-lg-6">
-            {{ markdown-to-html model.action }}
+            <div class="col-12">
+   {{ markdown-to-html model.action }}
+            </div>
+
         </div>
     </div>
 </div>
@@ -41,8 +46,10 @@
 <div class="container">
     <div class="row my-5 align-items-center chalenge">
         <div class="col-12 col-md-6 text-left py-5 pr-5">
-            <h3 class="mb-5 section-title {{model.highlightColour}}">The Challenge</h3>
-            {{ markdown-to-html model.chalengeText }}
+            <h3 class="mb-5 col-12 section-title {{model.highlightColour}}">The Challenge</h3>
+            <div class="col-12">
+                {{ markdown-to-html model.chalengeText }}
+            </div>
         </div>
         <div class="col-12 col-md-6 text-center py-5">
             <img src="{{ model.chalengeImage.file.url }}" alt="Chalenge Image">
@@ -70,9 +77,11 @@
         <div class="col-12 col-md-6">
             <img src="{{ model.solutionImage.file.url }}" alt="Chalenge Image">
         </div>
-        <div class="col-12 col-md-6 py-10 pl-5 pt-4">
-            <h3 class="mb-5 section-title {{model.highlightColour}}">Solution</h3>
-            {{ markdown-to-html model.solutionText }}
+        <div class="col-12 col-md-6 py-10 pt-4">
+            <h3 class="mb-5 col-12 section-title {{model.highlightColour}}">Solution</h3>
+            <div class="col-12">
+                {{ markdown-to-html model.solutionText }}
+            </div>
         </div>
     </div>
 </div>
@@ -95,15 +104,17 @@
 <div class="container mt-10">
     <div class="row my-5 result">
         <div class="col-12 col-md-8 mx-md-auto text-center">
-            <h3 class="mb-5 section-title {{model.highlightColour}}">Result</h3>
-            {{ markdown-to-html model.resultText }}
+            <h3 class="mb-5 col-12 section-title {{model.highlightColour}}">Result</h3>
+            <div class="col-12">
+                {{ markdown-to-html model.resultText }}
+            </div>
         </div>
     </div>
 </div>
 {{/if}}
 
-{{#if model.sliderImages.length }}  
-    {{#slick-slider sliderImages = model.sliderImages}}{{/slick-slider}}            
+{{#if model.sliderImages.length }}
+    {{#slick-slider sliderImages = model.sliderImages}}{{/slick-slider}}
 {{/if}}
 <!-- TESTIMONIAL -->
 {{#if model.testimonial}}

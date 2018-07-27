@@ -1,0 +1,12 @@
+<div class="testimonial-slider">
+  {{#each sliderImages as |slide|}}
+    <div class="row d-flex m-0 justify-content-center">
+      <div class="testimonial col-md-8 text-center">
+        <img src="{{slide.logoImage.file.url}}" alt="IYB-Client-Logos 0007 wood-group">
+          <p class="content">{{slide.content}}</p>
+          <p class="author">{{slide.author}}</p>
+          <hr class="hr-blue">
+        </div>
+      </div>
+  {{/each}}
+</div>

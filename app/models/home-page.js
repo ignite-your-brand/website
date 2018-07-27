@@ -22,6 +22,7 @@ export default Contentful.extend({
     testimonial: attr('string'),
     introduction: attr('string'),
     logos: hasMany('contentful-asset'),
+    testimonials: hasMany('contentful-asset'),
     firstFourLogos: Ember.computed('logos', function () {
         return this.get('logos').filter(function (value, index) {
             return index < 4 ? true : false;
