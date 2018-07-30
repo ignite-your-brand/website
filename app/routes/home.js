@@ -8,7 +8,7 @@ export default Ember.Route.extend({
     model() {
         return Ember.RSVP.hash({
             content: this.get('store').queryRecord( 'homePage', { 'fields.slug': 'home' } ),
-            caseStudies: this.get('store').findAll('project',  { order: 'fields.rank' } ).then(results => results.filter((project) => {
+            caseStudies: this.get('store').query('project',  { order: 'fields.rank' } ).then(results => results.filter((project) => {
                 console.log(project.get('rank'));
                 return project.get('featured') === true;
             })),
