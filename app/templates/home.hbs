@@ -11,8 +11,14 @@
 
         </div>
     </div>
-    <div style="margin-top: 5rem;">
+    {{!-- <div style="margin-top: 5rem;">
         {{#testimonial-slider sliderImages = model.testimonials}}{{/testimonial-slider}}
+    </div> --}}
+    <div class="row mt-4 justify-content-center">
+        <div class="col col-sm-10 col-md-8 col-lg-6 testimonial text-center">
+            {{markdown-to-html model.content.testimonial}}
+            <hr class="hr-blue">
+        </div>
     </div>
     <div class="row mt-10 hiddenxs-down align-items-center clients">
         <div class="col-4 client-introduction">
