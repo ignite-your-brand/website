@@ -700,12 +700,13 @@ $grey: #d9d9d9;
         border-top-width: 3px;
         border-top-style: solid;
         position: relative;
+        padding: 5rem 0 !important;
         .row {
             @media (max-width: #{map-get($grid-breakpoints, md)}) {
                 min-height: auto;
                 max-height: auto;
                 height: auto;
-                max-width: 50%;
+                // max-width: 50%;
              }
             min-height: 400px;
         }
@@ -721,8 +722,8 @@ $grey: #d9d9d9;
 
         .above-the-fold {
             .nudge-left {
-                transition: transform 1s ease-in-out;
-                transform: translateX(-$spacer);
+                // transition: transform 1s ease-in-out;
+                // transform: translateX(-$spacer);
             }
             .nudge-right {
                 transition: transform 1s ease-in-out;
@@ -738,34 +739,26 @@ $grey: #d9d9d9;
         }
 
         .featured-image {
-            min-height: 400px;
-            max-height: 550px;
-            height: 60vh;
-            background-position: right;
-            background-repeat: no-repeat;
-            background-size: auto 100%;
-            position: relative;
-            margin-right: -$spacer;
+            // min-height: 400px;
+            // max-height: 500px;
 
-            @media (max-width: #{map-get($grid-breakpoints, sm)}) {
-                background-size: 70%;
-                background-position: center right;
-                min-height: auto;
-                max-height: initial;
-                height: auto;
+
+            @media (max-width: #{map-get($grid-breakpoints, md)}) {
+
             }
 
-            &.left {
-                background-position: left;
-                margin-left: -$spacer;
 
-                @media (max-width: #{map-get($grid-breakpoints, sm)}) {
-                    background-position: center left;
-                }
-                @media (max-width: #{map-get($grid-breakpoints, md)}) {
-                    overflow: auto;
-                }
-            }
+            // &.left {
+            //     background-position: left;
+            //     margin-left: -$spacer;
+
+            //     @media (max-width: #{map-get($grid-breakpoints, sm)}) {
+            //         background-position: center left;
+            //     }
+            //     @media (max-width: #{map-get($grid-breakpoints, md)}) {
+            //         overflow: auto;
+            //     }
+            // }
 
         }
 
@@ -780,7 +773,7 @@ $grey: #d9d9d9;
         }
 
         .result {
-
+            margin-left: 2rem;
             p {
                 margin-bottom: $spacer / 4;
             }
@@ -1234,5 +1227,95 @@ $grey: #d9d9d9;
         }
         button {
         }
+    }
+}
+
+
+
+@media  (min-width: #{map-get($grid-breakpoints, md)}) {
+    .home .case-study .featured-image{
+        height: 50%;
+    }
+}
+
+@media  (min-width: #{map-get($grid-breakpoints, lg)}) {
+    .home .case-study .featured-image{
+        height: 80%;
+    }
+}
+
+@media (max-width: #{map-get($grid-breakpoints, md)}) {
+    .home .case-study .featured-image{
+        height: 45%;
+        width: 100%;
+        transform: translateX(0);
+    }
+    .photo {
+        display: flex !important;
+        height: 100% !important;
+        position: relative !important;
+        right: 0 !important;
+    }
+    .above-the-fold {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .above-the-fold .photo {
+        transform: translateX(0) !important;
+        margin-bottom: 2rem !important;
+    }
+
+}
+
+.photo {
+    display: flex;
+    right: -6rem;
+    top: 0;
+    height: 100%;
+    position: absolute;
+    align-items: center;
+    transition: transform 1s ease-in-out;
+}
+.nudge-right {
+    .photo {
+        left: initial;
+        right: -6rem;
+
+    }
+}
+
+.nudge-right {
+    .photo {
+        left: -6rem;
+        right: initial;
+    }
+    .above-the-fold {
+        .photo {
+            transform: translateX(1rem);
+        }
+    }
+}
+
+.nudge-left {
+    .photo {
+        right: -6rem;
+        left: initial;
+    }
+    .above-the-fold {
+        .photo {
+            transform: translateX(-1rem);
+        }
+    }
+}
+
+@media  (max-width: #{map-get($grid-breakpoints, sm)}) {
+    .home .case-study .result {
+        margin-left: -1rem;
+        margin-top: 1rem;
+    }
+    .home .case-study .project-info {
+        flex-direction: column !important;
+        align-items: flex-start !important;
     }
 }

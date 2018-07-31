@@ -10,7 +10,7 @@ export default Ember.Component.extend({
             fade: true,
             cssEase: 'linear',
             centerMode: true,
-            adaptiveHeight: true,
+            adaptiveHeight: false,
         });
 
 

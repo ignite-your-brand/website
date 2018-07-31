@@ -14,12 +14,6 @@
     <div style="margin-top: 5rem;">
         {{#testimonial-slider sliderImages = model.testimonials}}{{/testimonial-slider}}
     </div>
-    {{!-- <div class="row mt-4 justify-content-center">
-        <div class="col col-sm-10 col-md-8 col-lg-6 testimonial text-center">
-            {{markdown-to-html model.content.testimonial}}
-            <hr class="hr-blue">
-        </div>
-    </div> --}}
     <div class="row mt-10 hiddenxs-down align-items-center clients">
         <div class="col-4 client-introduction">
             {{markdown-to-html model.content.introduction}}
@@ -42,33 +36,46 @@
 {{#each model.caseStudies as | caseStudy index|}}
 <div class="case-study {{caseStudy.highlightColour}} mt-sm-6 py-md-5">
     {{#if (is-even index)}}
+    <div class="nudge-left">
         {{#slide-in-wrapper }}
-        <div class="container-fluid featured-image right align-items-center nudge-left" style={{ background-image caseStudy.featuredImage.file.url }}>
-            <div class="container">
-                <div class="row mt-5 align-items-center">
-                    <div class="col-12 col-sm-3">
-                        <h3 class="align-middle">{{caseStudy.name}}</h3>
-                        <hr>
-                        {{markdown-to-html caseStudy.featuredAction}}
-                        {{#link-to 'project' caseStudy.slug }}
-                            <button class="btn btn-outline-primary">learn more</button>
-                        {{/link-to }}
-                    </div>
-                    <div class="col-12 col-sm-3 result">
-                        {{markdown-to-html caseStudy.featuredResult}}
-                        <p><span class="callout">{{#if caseStudy.callout}}{{caseStudy.callout}}{{/if}}</span></p>
+        <div class="container featured-image left align-items-center">
+                    <div class="row">
+                        <div class="col-md-4 align-items-center d-flex align-items-center project-info">
+                            <div>
+                                <h3 class="align-middle">{{caseStudy.name}}</h3>
+                                <hr>
+                                {{markdown-to-html caseStudy.featuredAction}}
+
+                                {{#link-to 'project' caseStudy.slug }}
+                                    <button class="btn btn-outline-primary">learn more</button>
+                                {{/link-to }}
+                            </div>
+
+                            <div>
+                                    <div class="col-12 result">
+                                    {{markdown-to-html caseStudy.featuredResult}}
+                                    <p><span class="callout">{{#if caseStudy.callout}}{{caseStudy.callout}}{{/if}}</span></p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
+                <div class="photo">
+                    <img class="featured-image img-responsive" src="{{caseStudy.featuredImage.file.url}}">
+                </div>
+            {{/slide-in-wrapper }}
             </div>
-        </div>
-        {{/slide-in-wrapper }}
     {{else}}
+        <div class="nudge-right">
         {{#slide-in-wrapper }}
-            <div class="container-fluid featured-image left align-items-center nudge-right" style={{ background-image caseStudy.featuredImage.file.url }}>
-                <div class="container">
-                    <div class="row mt-5 align-items-center">
-                        <div class="col-12 col-sm-6"></div>
-                        <div class="col-12 col-sm-3">
+            <div class="container featured-image left align-items-center">
+                <div class="row">
+                    <div class="col-md-8">
+
+                    </div>
+                    <div class="col-md-4 align-items-center d-flex align-items-center project-info">
+                        <div>
                             <h3 class="align-middle">{{caseStudy.name}}</h3>
                             <hr>
                             {{markdown-to-html caseStudy.featuredAction}}
@@ -77,14 +84,22 @@
                                 <button class="btn btn-outline-primary">learn more</button>
                             {{/link-to }}
                         </div>
-                        <div class="col-12 col-sm-3 result">
-                            {{markdown-to-html caseStudy.featuredResult}}
-                            <p><span class="callout">{{#if caseStudy.callout}}{{caseStudy.callout}}{{/if}}</span></p>
+
+                        <div>
+                                <div class="col-12 result">
+                                {{markdown-to-html caseStudy.featuredResult}}
+                                <p><span class="callout">{{#if caseStudy.callout}}{{caseStudy.callout}}{{/if}}</span></p>
+                            </div>
                         </div>
                     </div>
+
                 </div>
             </div>
+            <div class="photo">
+                <img class="featured-image img-responsive"src="{{caseStudy.featuredImage.file.url}}">
+            </div>
         {{/slide-in-wrapper }}
+        </div>
     {{/if}}
 </div>
 {{/each}}
