@@ -1331,9 +1331,10 @@ $grey: #d9d9d9;
     padding: 0;
     .container {
         padding: 0;
+        padding-left: 1rem;
         height: 100%;
         display: flex;
-        align-items: center;
+        align-items: flex-end;
     }
     .absolute-holder {
         position: absolute;
@@ -1354,5 +1355,6 @@ $grey: #d9d9d9;
     }
     .intro-text {
         max-width: 255px;
+        margin-bottom: 1.5rem;
     }
 }
