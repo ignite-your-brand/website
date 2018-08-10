@@ -1358,3 +1358,26 @@ $grey: #d9d9d9;
         margin-bottom: 1.5rem;
     }
 }
+.categories-holder {
+    text-align: center;
+    margin: 2rem auto;
+}
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translate3d(0, -20%, 0);
+	}
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
+.fadeIn {
+    animation: fadeIn 1s ease-in both;
+
+}
+  .category-button {
+      &:focus {
+          box-shadow: none;
+      }
+  }

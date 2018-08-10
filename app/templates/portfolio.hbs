@@ -7,9 +7,16 @@
         </div>
     </div>
 </div>
+<div class="categories-holder">
+    {{#each categories as |category|}}
+        <button {{action "selectCategory" category}} class="btn btn-outline-primary category-button {{category}} {{active-class category activeCategory}}">{{category}}</button>
+    {{/each}}
+</div>
 
-<div class="container">
+
+<div class="container portfolio-holder" id="portfolio-holder">
     <div class="row mt-5 align-items-center">
+
         {{#each model.projects as |project|}}
             <div class="col-12 col-sm-6 col-lg-4 mb-4 text-center project-image">
                                     {{#link-to 'project' project.slug }}
