@@ -132,5 +132,57 @@
     </div>
 </div>
 {{/if}}
+ <div class="related-title">
+                <h3>Related projects</h3>
+                <hr class="hr-{{model.highlightColour}} center">
+            </div>
+<div class="container portfolio-holder" id="portfolio-holder">
+    <div class="row mt-5 align-items-center">
 
+{{#each model.related as |project|}}
+{{#each project as |inside|}}
+    <div class="col-12 col-sm-6 col-lg-4 mb-4 text-center project-image">
+                {{#link-to 'project' inside.slug }}
+                <div class="square">
+
+                    <div class="image">
+
+                        {{# if inside.logoImage }}
+                            <img class="img-fluid" src="{{inside.squareImage.file.url}}"  alt="{{ inside.name }}">
+                        {{ else }}
+                            <img class="img-fluid" src="{{inside.squareImage.file.url}}" alt="{{ inside.name }}">
+                        {{/if}}
+
+                    </div>
+
+                    <div class="cover">
+                        <h3 class="title">{{inside.name}}</h3>
+                        <hr class="hr-{{inside.highlightColour}} center">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="dropdown">
+                                <span>{{fa-icon "share-alt"}}</span>
+                                <ul class="share">
+                                    <li>
+                                        <a target="_blank" href="{{share-url inside.slug inside.name 'linkedin'}}">{{fa-icon "linkedin"}}</a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" href="{{share-url inside.slug inside.name 'twitter'}}">{{fa-icon "twitter"}}</a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" href="{{share-url inside.slug inside.name 'facebook'}}">{{fa-icon "facebook-f"}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <p class="description">{{inside.shortDescription}}</p>
+                        </div>
+
+                    </div>
+                </div>
+                 {{/link-to}}
+            </div>
+{{/each}}
+
+{{/each}}
+</div>
+</div>
 {{ scribble-footer }}

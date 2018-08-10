@@ -1,0 +1,27 @@
+
+<div class="container">
+    <div class="row mt-10 justify-content-center">
+        <div class="col col-lg-8 text-center">
+            <h3>{{model.content.title}}</h3>
+            <hr class="hr-orange center">
+            {{markdown-to-html model.content.introductionText}}
+        </div>
+        <div class="clients-holder">
+          {{#each model.content.clients as |client|}}
+            <div class="single-client">
+              <div class="content">
+                <img class="img-fluid" src="{{client.file.url}}">
+              </div>
+            </div>
+            <div class="single-client">
+              <div class="content">
+                <img class="img-fluid" src="{{client.file.url}}">
+              </div>
+            </div>
+          {{/each}}
+        </div>
+
+    </div>
+</div>
+
+{{ scribble-footer }}

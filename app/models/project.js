@@ -33,5 +33,14 @@ export default Contentful.extend({
 	resultText: attr('string'),
     sliderImages: hasMany('contentful-asset'),
     squareImage: belongsTo('contentful-asset'),
-	testimonial: attr('string'),
+    testimonial: attr('string'),
+    relatedProjects: attr('string'),
+    related: Ember.computed('relatedProjects', function () {
+        console.log(this.get('relatedProjects').split(','));
+        var tempArray = [];
+        this.get('relatedProjects').split(',').forEach(element => {
+            tempArray.push(this.get('store').query('project', { 'fields.slug':  element }));
+        });
+        return tempArray;
+    }),
 });

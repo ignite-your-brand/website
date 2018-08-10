@@ -27,7 +27,6 @@ export default Ember.Route.extend({
                 return array;
             })),
             projects: this.get('store').query( 'project', { 'fields.category': params.category}).then((array) => {
-                console.log(array);
                 return array;
             }),
         });
@@ -36,6 +35,8 @@ export default Ember.Route.extend({
     setupController( controller, model ) {
         this._super(controller, model);
         controller.set('projects', model.projects);
+        this.transitionTo('/portfolio?category=all');
+
          model.categories.forEach((category) => {
             controller.set('categories', category.get('categories').split(','));
             var array = category.get('categories').split(',');

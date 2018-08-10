@@ -2,7 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
     title: Ember.computed(function () {
-        // return Ember.get(this.modelFor(this.routeName), 'content.title'); // null safe
         return 'Ignite Your Brand';
     }),
     model() {

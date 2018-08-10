@@ -17,7 +17,7 @@ body {
 
 .logo {
     width: 200px;
-    max-width: 100%;
+    max-width: 200px;
     transition: opacity 1s;
 }
 
@@ -1022,6 +1022,10 @@ $grey: #d9d9d9;
             margin: 0 auto;
             display: block;
         }
+        @media  (min-width: #{map-get($grid-breakpoints, md)}) {
+            display: flex;
+            align-items: center;
+         }
 
     }
     .devices {
@@ -1381,3 +1385,64 @@ $grey: #d9d9d9;
           box-shadow: none;
       }
   }
+.clients-holder {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 4rem 0;
+    padding-top: 0;
+    .single-client {
+        position: relative;
+        width: 20%;
+        @media (max-width: 1024px) {
+            width: 25%;
+        }
+        @media (max-width: 768px) {
+            width: 33%;
+        }
+        @media (max-width: 460px) {
+            width: 50%;
+        }
+        img {
+            width: 80%;
+            margin: 0 auto;
+            display: block;
+        }
+        &:after {
+            content: '';
+            display: block;
+            padding-bottom: 70%;
+        }
+        .content {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+.info {
+
+        @media  (max-width: #{map-get($grid-breakpoints, sm)}) {
+            display: none;
+        }
+
+
+}
+.info-menu {
+    display: none;
+    @media  (max-width: #{map-get($grid-breakpoints, sm)}) {
+        display: block;
+        bottom: 4rem;
+        position: absolute;
+    }
+
+}
+.related-title {
+    width: 100%;
+    text-align: center;
+}

@@ -13,6 +13,7 @@ Router.map(function() {
   this.route('jobs', { path: 'careers' });
   this.route('portfolio', { path: 'portfolio' });
   this.route('project', { path: 'portfolio/:slug' });
+  this.route('clients', { path: 'clients' });
 });
 
 export default Router;
