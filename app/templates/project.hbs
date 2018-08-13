@@ -1,11 +1,11 @@
 <!-- <div class="header-image" style={{ background-image model.headerImage.file.url }}></div> -->
 <div class="container-fluid header-image">
-    <div>
+    <div data-aos="fade-left">
         <img class="project-image" src="{{model.headerImage.file.url}}" alt="">
     </div>
     <div class="absolute-holder">
         <div class="container">
-            <div class="col col-lg-8 text-left intro-text">
+            <div class="col col-lg-8 text-left intro-text" data-aos="fade-right">
                 <h3>{{model.name}}</h3>
                 <hr class="hr-{{model.highlightColour}} center">
                 <div class="col-12">
@@ -26,14 +26,14 @@
 <div class="container">
     <div class="row my-5">
         <div class="col-12 col-lg-6 text-left py-10">
-            <div class="col-6">
+            <div class="col-6" data-aos="fade-right">
                 <h3>{{ model.featuredResult }}</h3>
                 <span class="callout {{model.highlightColour}}">{{ model.callout }}</span>
             </div>
         </div>
         <div class="col-12 col-lg-6">
-            <div class="col-12">
-   {{ markdown-to-html model.action }}
+            <div class="col-12" data-aos="fade-left">
+                {{ markdown-to-html model.action }}
             </div>
 
         </div>
@@ -50,13 +50,13 @@
 <!-- CHALENGE -->
 <div class="container">
     <div class="row my-5 align-items-center chalenge">
-        <div class="col-12 col-md-6 text-left py-5 pr-5">
+        <div class="col-12 col-md-6 text-left py-5 pr-5" data-aos="fade-right">
             <h3 class="mb-5 col-12 section-title {{model.highlightColour}}">The Challenge</h3>
             <div class="col-12">
                 {{ markdown-to-html model.chalengeText }}
             </div>
         </div>
-        <div class="col-12 col-md-6 text-center py-5">
+        <div class="col-12 col-md-6 text-center py-5" data-aos="fade-left">
             <img src="{{ model.chalengeImage.file.url }}" alt="Chalenge Image">
         </div>
     </div>
@@ -64,14 +64,14 @@
 <!-- TWO COLUMN IMAGES -->
 <div class="container-fluid">
     <div class="row two-col-images">
-        <div class="col-12 col-md-6 nopadding">
+        <div class="col-12 col-md-6 nopadding" data-aos="fade-right">
             {{#slide-in-wrapper}}
-            <img class="img-fluid nudge-up" src="{{ model.twoColumnImageLeft.file.url }}" alt="Left Image">
+            <img class="img-fluid" src="{{ model.twoColumnImageLeft.file.url }}" alt="Left Image">
             {{/slide-in-wrapper}}
         </div>
-        <div class="col-12 col-md-6 nopadding">
+        <div class="col-12 col-md-6 nopadding" data-aos="fade-left">
             {{#slide-in-wrapper}}
-            <img class="img-fluid nudge-up nudge-up-slow" src="{{ model.twoColumnImageRight.file.url }}" alt="Right Image">
+            <img class="img-fluid" src="{{ model.twoColumnImageRight.file.url }}" alt="Right Image">
             {{/slide-in-wrapper}}
         </div>
     </div>
@@ -79,10 +79,10 @@
 <!-- SOLUTION -->
 <div class="container mt-10">
     <div class="row my-5 solution">
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6" data-aos="fade-right">
             <img src="{{ model.solutionImage.file.url }}" alt="Chalenge Image">
         </div>
-        <div class="col-12 col-md-6 py-10 pt-4">
+        <div class="col-12 col-md-6 py-10 pt-4" data-aos="fade-left">
             <h3 class="mb-5 col-12 section-title {{model.highlightColour}}">Solution</h3>
             <div class="col-12">
                 {{ markdown-to-html model.solutionText }}
@@ -95,7 +95,7 @@
 {{#if model.responsiveDevicesImage }}
 <div class="container mt-10">
     <div class="row my-5 devices">
-        <div class="col-12 col-md-12">
+        <div class="col-12 col-md-12" data-aos="fade-up">
             {{#slide-in-wrapper}}
             <img class="img-fluid nudge-up" src="{{ model.responsiveDevicesImage.file.url }}" alt="Chalenge Image">
             {{/slide-in-wrapper}}
@@ -108,7 +108,7 @@
 {{#if model.resultText}}
 <div class="container mt-10">
     <div class="row my-5 result">
-        <div class="col-12 col-md-8 mx-md-auto text-center">
+        <div class="col-12 col-md-8 mx-md-auto text-center" data-aos="fade-up">
             <h3 class="mb-5 col-12 section-title {{model.highlightColour}}">Result</h3>
             <div class="col-12">
                 {{ markdown-to-html model.resultText }}
@@ -118,12 +118,15 @@
 </div>
 {{/if}}
 
-{{#if model.sliderImages.length }}
-    {{#slick-slider sliderImages = model.sliderImages}}{{/slick-slider}}
-{{/if}}
+<div data-aos="fade-up">
+    {{#if model.sliderImages.length }}
+        {{#slick-slider sliderImages = model.sliderImages}}{{/slick-slider}}
+    {{/if}}
+</div>
+
 <!-- TESTIMONIAL -->
 {{#if model.testimonial}}
-<div class="container mt-10">
+<div class="container mt-10" data-aos="fade-up">
     <div class="row my-5 result">
         <div class="col-12 col-md-8 mx-md-auto text-center">
             {{ markdown-to-html model.testimonial }}
@@ -132,6 +135,8 @@
     </div>
 </div>
 {{/if}}
+<div data-aos="fade-up">
+{{#if model.related}}
  <div class="related-title">
                 <h3>Related projects</h3>
                 <hr class="hr-{{model.highlightColour}} center">
@@ -185,4 +190,7 @@
 {{/each}}
 </div>
 </div>
+{{/if}}
+</div>
+
 {{ scribble-footer }}

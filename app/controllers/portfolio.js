@@ -6,6 +6,5 @@ export default Ember.Controller.extend({
     category: '',
     sortedPortfolio: Ember.computed.sort('model.portfolio', 'sortedPortfolioDate'),
     selectCategory: function() {
-        console.log('cao maco');
     }
 });

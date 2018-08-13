@@ -36,9 +36,12 @@ export default Contentful.extend({
     testimonial: attr('string'),
     relatedProjects: attr('string'),
     related: Ember.computed('relatedProjects', function () {
-        console.log(this.get('relatedProjects').split(','));
+        if(!this.get('relatedProjects')) {
+            return [];
+        }
         var tempArray = [];
-        this.get('relatedProjects').split(',').forEach(element => {
+        var splitArray = this.get('relatedProjects').split(',');
+        splitArray.forEach(element => {
             tempArray.push(this.get('store').query('project', { 'fields.slug':  element }));
         });
         return tempArray;

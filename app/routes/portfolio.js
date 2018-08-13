@@ -7,9 +7,9 @@ export default Ember.Route.extend({
             Ember.$('.' + item).addClass('active');
             this.transitionTo('/portfolio?category=' + item);
             this.set('activeCategory', item);
-            Ember.$('#portfolio-holder').fadeOut('fast', function() {
-                Ember.$('#portfolio-holder').fadeIn('slow');
-            });
+            // Ember.$('#portfolio-holder').fadeOut('fast', function() {
+            //     Ember.$('#portfolio-holder').fadeIn('slow');
+            // });
         }
     },
     nesto: Ember,
@@ -35,7 +35,6 @@ export default Ember.Route.extend({
     setupController( controller, model ) {
         this._super(controller, model);
         controller.set('projects', model.projects);
-        this.transitionTo('/portfolio?category=all');
 
          model.categories.forEach((category) => {
             controller.set('categories', category.get('categories').split(','));
