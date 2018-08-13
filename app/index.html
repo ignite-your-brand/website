@@ -26,10 +26,16 @@
     <script src="{{rootURL}}assets/ignite-your-brand.js"></script>
     <script async type="text/javascript" src="//userlike-cdn-widgets.s3-eu-west-1.amazonaws.com/f36854f83d91048ea8d98d9418ceb83a86431ccb8242c86c02378e95448eb15f.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.js"></script>
     <script>
-      AOS.init();
+        AOS.init();
+        setTimeout(data => {
+          AOS.refresh();
+        }, 1500);
+    // alert("Ready!");
+// }, false);
     </script>
     {{content-for "body-footer"}}
   </body>

@@ -1,11 +1,11 @@
 <!-- <div class="header-image" style={{ background-image model.headerImage.file.url }}></div> -->
 <div class="container-fluid header-image">
-    <div data-aos="fade-left">
+    <div>
         <img class="project-image" src="{{model.headerImage.file.url}}" alt="">
     </div>
     <div class="absolute-holder">
         <div class="container">
-            <div class="col col-lg-8 text-left intro-text" data-aos="fade-right">
+            <div class="col col-lg-8 text-left intro-text">
                 <h3>{{model.name}}</h3>
                 <hr class="hr-{{model.highlightColour}} center">
                 <div class="col-12">
@@ -107,7 +107,7 @@
 <!-- RESULT -->
 {{#if model.resultText}}
 <div class="container mt-10">
-    <div class="row my-5 result">
+    <div class="row my-5 result" data-aos="fade-up">
         <div class="col-12 col-md-8 mx-md-auto text-center" data-aos="fade-up">
             <h3 class="mb-5 col-12 section-title {{model.highlightColour}}">Result</h3>
             <div class="col-12">
@@ -123,18 +123,19 @@
         {{#slick-slider sliderImages = model.sliderImages}}{{/slick-slider}}
     {{/if}}
 </div>
-
-<!-- TESTIMONIAL -->
-{{#if model.testimonial}}
-<div class="container mt-10" data-aos="fade-up">
-    <div class="row my-5 result">
-        <div class="col-12 col-md-8 mx-md-auto text-center">
-            {{ markdown-to-html model.testimonial }}
-            <hr class="hr-{{model.highlightColour}} center">
+<div data-aos="fade-up">
+    <!-- TESTIMONIAL -->
+    {{#if model.testimonial}}
+    <div class="container mt-10">
+        <div class="row my-5 result">
+            <div class="col-12 col-md-8 mx-md-auto text-center">
+                {{ markdown-to-html model.testimonial }}
+                <hr class="hr-{{model.highlightColour}} center">
+            </div>
         </div>
     </div>
+    {{/if}}
 </div>
-{{/if}}
 <div data-aos="fade-up">
 {{#if model.related}}
  <div class="related-title">
@@ -192,5 +193,4 @@
 </div>
 {{/if}}
 </div>
-
 {{ scribble-footer }}
