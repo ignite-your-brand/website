@@ -7,9 +7,6 @@ export default Ember.Route.extend({
             Ember.$('.' + item).addClass('active');
             this.transitionTo('/portfolio?category=' + item);
             this.set('activeCategory', item);
-            // Ember.$('#portfolio-holder').fadeOut('fast', function() {
-            //     Ember.$('#portfolio-holder').fadeIn('slow');
-            // });
         }
     },
     nesto: Ember,
@@ -26,7 +23,7 @@ export default Ember.Route.extend({
                 var array = category.get('categories').split(',');
                 return array;
             })),
-            projects: this.get('store').query( 'project', { 'fields.category': params.category}).then((array) => {
+            projects: this.get('store').query( 'project', { 'fields.searchCategory': params.category}).then((array) => {
                 return array;
             }),
         });
