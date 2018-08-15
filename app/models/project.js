@@ -36,15 +36,15 @@ export default Contentful.extend({
     squareImage: belongsTo('contentful-asset'),
     testimonial: attr('string'),
     relatedProjects: attr('string'),
-    // related: Ember.computed('relatedProjects', function () {
-    //     if(!this.get('relatedProjects')) {
-    //         return [];
-    //     }
-    //     var tempArray = [];
-    //     var splitArray = this.get('relatedProjects').split(',');
-    //     splitArray.forEach(element => {
-    //         tempArray.push(this.get('store').query('project', { 'fields.slug':  element }));
-    //     });
-    //     return tempArray;
-    // })
+    related: Ember.computed('relatedProjects', function () {
+        if(!this.get('relatedProjects')) {
+            return [];
+        }
+        var tempArray = [];
+        var splitArray = this.get('relatedProjects').split(',');
+        splitArray.forEach(element => {
+            tempArray.push(this.get('store').query('project', { 'fields.slug':  element }));
+        });
+        return tempArray;
+    })
 });
