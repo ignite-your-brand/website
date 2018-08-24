@@ -39,7 +39,8 @@ header {
 
     @media (max-width: #{map-get($grid-breakpoints, sm)}) {
         .logo {
-            margin-bottom: $spacer;
+            margin-bottom: 0;
+            margin-top: 0;
         }
     }
 
@@ -458,7 +459,7 @@ $grey: #d9d9d9;
 
     @media (max-width: #{map-get($grid-breakpoints, sm)}) {
         position: absolute;
-        top: 41px;
+        top: 25px;
         right: 25px;
     }
 
@@ -773,9 +774,10 @@ $grey: #d9d9d9;
         }
 
         .result {
+            width: 100%;
             margin-left: 2rem;
             p {
-                margin-bottom: $spacer / 4;
+                margin-bottom: 0;
             }
         }
 
@@ -793,6 +795,10 @@ $grey: #d9d9d9;
                     color: $colour;
                     font-weight: $font-weight-bold;
                     font-size: $display4-size;
+
+                    line-height: 1;
+                    margin-top: 0.5em;
+                    display: inline-block;
                 }
 
                 hr {
@@ -1251,6 +1257,18 @@ $grey: #d9d9d9;
         height: 80%;
     }
 }
+@media  (min-width: 992px) {
+    .home .case-study .featured-image{
+        height: 80%;
+    }
+}
+
+@media only screen and (max-width: 1080px) and (min-width: 992px)  {
+    .home .case-study .featured-image{
+        height: 70%;
+    }
+}
+
 
 @media (max-width: #{map-get($grid-breakpoints, md)}) {
     .home .case-study .featured-image{
@@ -1265,7 +1283,7 @@ $grey: #d9d9d9;
         right: 0 !important;
     }
     .above-the-fold {
-        padding: 1rem;
+        padding: 0;
         display: flex;
         flex-direction: column-reverse;
     }
@@ -1319,7 +1337,7 @@ $grey: #d9d9d9;
 
 @media  (max-width: #{map-get($grid-breakpoints, sm)}) {
     .home .case-study .result {
-        margin-left: -1rem;
+        margin-left: 0em;
         margin-top: 1rem;
     }
     .home .case-study .project-info {
@@ -1453,4 +1471,9 @@ header .below-the-fold .logo {
 }
 .project {
     overflow: hidden;
+}
+@media  (max-width: #{map-get($grid-breakpoints, sm)}) {
+    .solution {
+        margin-top: 3rem;
+    }
 }

@@ -41,7 +41,8 @@
         <div class="container featured-image left align-items-center" data-aos="fade-right">
                     <div class="row">
                         <div class="col-md-4 align-items-center d-flex align-items-center project-info">
-                            <div>
+                            <div class=" align-items-end d-flex align-items-end project-info">
+                                <div>
                                 <h3 class="align-middle">{{caseStudy.name}}</h3>
                                 <hr>
                                 {{markdown-to-html caseStudy.featuredAction}}
@@ -52,11 +53,13 @@
                             </div>
 
                             <div>
-                                    <div class="col-12 result">
+                                    <div class="result">
                                     {{markdown-to-html caseStudy.featuredResult}}
                                     <p><span class="callout">{{#if caseStudy.callout}}{{caseStudy.callout}}{{/if}}</span></p>
                                 </div>
                             </div>
+                            </div>
+
                         </div>
 
                     </div>
@@ -70,12 +73,14 @@
         <div class="nudge-right">
         {{#slide-in-wrapper }}
             <div class="container featured-image left align-items-center"  data-aos="fade-left">
-                <div class="row">
+
+                <div class="row d-flex">
                     <div class="col-md-8">
 
                     </div>
-                    <div class="col-md-4 align-items-center d-flex align-items-center project-info">
-                        <div>
+                    <div class="col-md-4 align-items-center d-flex align-items-end project-info">
+                        <div class="d-flex align-items-end">
+                            <div>
                             <h3 class="align-middle">{{caseStudy.name}}</h3>
                             <hr>
                             {{markdown-to-html caseStudy.featuredAction}}
@@ -86,10 +91,11 @@
                         </div>
 
                         <div>
-                                <div class="col-12 result">
+                                <div class="result">
                                 {{markdown-to-html caseStudy.featuredResult}}
                                 <p><span class="callout">{{#if caseStudy.callout}}{{caseStudy.callout}}{{/if}}</span></p>
                             </div>
+                        </div>
                         </div>
                     </div>
 

@@ -21,6 +21,7 @@ export function initialize() {
 
         trackPageChange: Ember.on('didTransition', function() {
 
+
             if (this.get('fastboot.isFastBoot')) {
                 return;
             }

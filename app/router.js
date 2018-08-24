@@ -12,7 +12,7 @@ Router.map(function() {
   this.route('xmas');
   this.route('jobs', { path: 'careers' });
   this.route('portfolio', { path: 'portfolio' });
-  this.route('project', { path: 'portfolio/:slug' });
+  this.route('project', { path: 'project/:slug' });
   this.route('clients', { path: 'clients' });
 });
 
