@@ -21,6 +21,12 @@ body {
     transition: opacity 1s;
 }
 
+.testimonials-section{
+    @media (min-width: #{map-get($grid-breakpoints, md)}) {
+        margin-top: 5rem;
+    }
+}
+
 header {
     background-color: $transparent-black;
     z-index: $zindex-fixed;
@@ -1048,6 +1054,12 @@ $grey: #d9d9d9;
         }
     }
 
+    .project-slider{
+        .slick-slider{
+            margin-top: 3rem!important;
+        }
+    }
+
     .solution {
         img {
             width: 90%;
@@ -1058,6 +1070,10 @@ $grey: #d9d9d9;
         @media  (min-width: #{map-get($grid-breakpoints, md)}) {
             display: flex;
             align-items: center;
+         }
+
+         p{
+            margin-bottom: 0;
          }
 
     }
@@ -1410,6 +1426,10 @@ $grey: #d9d9d9;
 .categories-holder {
     text-align: center;
     margin: 2rem auto;
+
+    .btn{
+        margin: .4rem 0;
+    }
 }
 @keyframes fadeIn {
 	from {
