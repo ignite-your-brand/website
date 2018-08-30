@@ -21,6 +21,26 @@ body {
     transition: opacity 1s;
 }
 
+
+.mt-md-10{
+    @media (min-width: #{map-get($grid-breakpoints, md)}) {
+        margin-top: 6rem!important;
+    }
+}
+
+.mb-md-10{
+    @media (min-width: #{map-get($grid-breakpoints, md)}) {
+        margin-bottom: 6rem!important;
+    }
+}
+
+.my-md-10{
+    @media (min-width: #{map-get($grid-breakpoints, md)}) {
+        margin-top: 6rem!important;
+        margin-bottom: 6rem!important;
+    }
+}
+
 .testimonials-section{
     @media (min-width: #{map-get($grid-breakpoints, md)}) {
         margin-top: 5rem;
@@ -1057,6 +1077,10 @@ $grey: #d9d9d9;
     .project-slider{
         .slick-slider{
             margin-top: 3rem!important;
+
+            @media  (min-width: #{map-get($grid-breakpoints, md)}) {
+                margin-top: 6rem!important;
+            }
         }
     }
 
