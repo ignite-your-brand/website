@@ -22,22 +22,24 @@ body {
 }
 
 
+$desktopSpacer: 8rem;
+
 .mt-md-10{
     @media (min-width: #{map-get($grid-breakpoints, md)}) {
-        margin-top: 6rem!important;
+        margin-top: $desktopSpacer!important;
     }
 }
 
 .mb-md-10{
     @media (min-width: #{map-get($grid-breakpoints, md)}) {
-        margin-bottom: 6rem!important;
+        margin-bottom: $desktopSpacer!important;
     }
 }
 
 .my-md-10{
     @media (min-width: #{map-get($grid-breakpoints, md)}) {
-        margin-top: 6rem!important;
-        margin-bottom: 6rem!important;
+        margin-top: $desktopSpacer!important;
+        margin-bottom: $desktopSpacer!important;
     }
 }
 
@@ -1079,7 +1081,7 @@ $grey: #d9d9d9;
             margin-top: 3rem!important;
 
             @media  (min-width: #{map-get($grid-breakpoints, md)}) {
-                margin-top: 6rem!important;
+                margin-top: $desktopSpacer!important;
             }
         }
     }
