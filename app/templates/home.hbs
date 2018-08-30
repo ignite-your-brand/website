@@ -79,8 +79,9 @@
 
                     </div>
                     <div class="col-md-4 align-items-center d-flex align-items-end project-info">
-                        <div class="d-flex align-items-end">
-                            <div>
+                        <div class="row align-items-end">
+                        
+                        <div class='col-xs-12 col-md'>
                             <h3 class="align-middle">{{caseStudy.name}}</h3>
                             <hr>
                             {{markdown-to-html caseStudy.featuredAction}}
@@ -90,7 +91,7 @@
                             {{/link-to }}
                         </div>
 
-                        <div>
+                        <div class='col-xs-12 col-md'>
                                 <div class="result">
                                 {{markdown-to-html caseStudy.featuredResult}}
                                 <p><span class="callout">{{#if caseStudy.callout}}{{caseStudy.callout}}{{/if}}</span></p>

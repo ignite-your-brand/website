@@ -25,13 +25,15 @@ export default Ember.Route.extend({
             })),
             projects: this.get('store').query( 'project', { 'fields.searchCategory': params.category}).then((array) => {
                 return array;
-            }),
+            })
         });
     },
 
     setupController( controller, model ) {
         this._super(controller, model);
         controller.set('projects', model.projects);
+
+        // console.log("PROJECTS!!!", model.projects)
 
          model.categories.forEach((category) => {
             controller.set('categories', category.get('categories').split(','));

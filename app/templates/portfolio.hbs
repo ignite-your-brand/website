@@ -19,7 +19,7 @@
 
         {{#each model.projects as |project|}}
             <div class="col-12 col-sm-6 col-lg-4 mb-4 text-center project-image" data-aos="fade-up">
-                                    {{#link-to 'project' project.slug }}
+                {{#link-to 'project' project.slug }}
                 <div class="square">
 
                     <div class="image">
@@ -35,27 +35,31 @@
                     <div class="cover">
                         <h3 class="title">{{project.name}}</h3>
                         <hr class="hr-{{project.highlightColour}} center">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <div class="dropdown">
-                                <span>{{fa-icon "share-alt"}}</span>
-                                <ul class="share">
-                                    <li>
-                                        <a target="_blank" href="{{share-url project.slug project.name 'linkedin'}}">{{fa-icon "linkedin"}}</a>
-                                    </li>
-                                    <li>
-                                        <a target="_blank" href="{{share-url project.slug project.name 'twitter'}}">{{fa-icon "twitter"}}</a>
-                                    </li>
-                                    <li>
-                                        <a target="_blank" href="{{share-url project.slug project.name 'facebook'}}">{{fa-icon "facebook-f"}}</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <p class="description">{{project.shortDescription}}</p>
-                        </div>
-
+                        <p class="description">{{project.shortDescription}}</p>
                     </div>
                 </div>
-                 {{/link-to}}
+                {{/link-to}}
+
+                {{!-- SHARE --}}
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="dropdown">
+                        <span>{{fa-icon "share-alt"}}</span>
+                        <ul class="share">
+                            <li>
+                                <a target="_blank" href="{{share-url project.slug project.name 'linkedin'}}">{{fa-icon "linkedin"}}</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="{{share-url project.slug project.name 'twitter'}}">{{fa-icon "twitter"}}</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="{{share-url project.slug project.name 'facebook'}}">{{fa-icon "facebook-f"}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+                {{!-- END :: SHARE --}}
+                
             </div>
         {{/each}}
     </div>

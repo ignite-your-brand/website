@@ -7,9 +7,10 @@ import Ember from 'ember';
 export default Contentful.extend({
     name: attr('string'),
     status: attr('isPublished'),
-    slug: Ember.computed('name', function () {
-        return this.get('name').toLowerCase().replace(/ /, '-');
-    }),
+    // slug: Ember.computed('name', function () {
+    //     return this.get('name').toLowerCase().replace(/ /, '-');
+    // }),
+    slug: attr('string'),
     rank: attr('number'),
     highlightColour: attr('string'),
     category: attr('string'),
