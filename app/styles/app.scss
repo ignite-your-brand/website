@@ -81,6 +81,20 @@ footer {
     }
 }
 
+main{
+
+    &.project{
+        opacity: 0;
+
+        &.faded{
+            transition: opacity 1s;
+            transition-delay: .5s;
+            opacity: 1;
+        }
+    }
+
+}
+
 .clickable {
 
     &:hover {

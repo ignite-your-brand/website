@@ -16,5 +16,11 @@ export default Ember.Route.extend({
     },
     setupController( controller, model ) {
         this._super(controller, model);
+
+        Ember.run.schedule('afterRender', this, function () {
+            // setTimeout(function(){
+                Ember.$(".project").addClass("faded")
+            // }, 300)
+        });
     }
 });

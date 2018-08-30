@@ -14,5 +14,8 @@ export default Ember.Route.extend({
             team: this.get('store').query( 'employee', { order: 'fields.rank' } ),
             testimonials: this.get('store').query( 'testimonial', {} ),
         });
+    },
+    didInsertElement() {
+        console.log('enter home page');
     }
 });
