@@ -1110,7 +1110,7 @@ $grey: #d9d9d9;
     }
     .result {
 
-        p{
+        p, h3{
             @media  (max-width: #{map-get($grid-breakpoints, md)}) {
                 text-align: left!important;
              }
