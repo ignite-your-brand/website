@@ -4,6 +4,17 @@ export default Ember.Component.extend({
     classNames: ['slick-slider-wrapper'],
     didInsertElement() {
 
+        AOS.init();
+
+        setTimeout(data => {
+          AOS.refresh();
+        }, 500);
+
+        setTimeout(data => {
+          AOS.refresh();
+        }, 1500);
+
+
         setTimeout(function (){
 
             Ember.$('.slick-slider').slick({
@@ -17,6 +28,7 @@ export default Ember.Component.extend({
 
                  autoplay: true,
                  autoplaySpeed: 3000,
+                 pauseOnHover:false
             });
 
             let dots = Ember.$('.slick-dots li');
