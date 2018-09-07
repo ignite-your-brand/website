@@ -4,6 +4,17 @@ export default Ember.Component.extend({
     classNames: ['slick-slider-wrapper'],
     didInsertElement() {
 
+        AOS.init();
+
+        setTimeout(data => {
+          AOS.refresh();
+        }, 500);
+
+        setTimeout(data => {
+          AOS.refresh();
+        }, 1500);
+
+
         setTimeout(function (){
 
             Ember.$('.testimonial-slider').slick({
