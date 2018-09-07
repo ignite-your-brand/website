@@ -66,8 +66,14 @@ export default Ember.Component.extend({
             }, delay);
         }
     },
+
+    willDestroyElement() {
+        console.log("CANCEL IT HERE!")
+        Ember.run.cancel(this._debouncedItem);
+    },
+
     didInsertElement() {
-        Ember.run.later(this, function () {
+        this._debouncedItem = Ember.run.later(this, function () {
             this.set('titleIndex', 0);
         }, START_DELAY);
     }
