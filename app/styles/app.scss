@@ -603,6 +603,8 @@ $grey: #d9d9d9;
     width: 80px;
     height: 17px;
     z-index: 999;
+    bottom: -95px;
+    top: initial;
     &:before {
         content: '';
         background-size: 70% 80%;
@@ -619,7 +621,7 @@ $grey: #d9d9d9;
     /*left: -95px;*/
 
     @media (min-width: #{map-get($grid-breakpoints, md)}) {
-        left: -60px !important;
+        //left: -60px !important;
     }
 
     &:before {
@@ -632,7 +634,7 @@ $grey: #d9d9d9;
 .slick-next {
     /*right: -95px;*/
     @media (min-width: #{map-get($grid-breakpoints, md)}) {
-        right: -60px !important;
+        //right: -60px !important;
     }
 
     &:before {
