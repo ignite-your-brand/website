@@ -52,7 +52,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.googleAnalytics = {
-      webPropertyId: 'UA-105784906-1'
+      webPropertyId: 'UA-124593662-1'
     };
     ENV.hotjar = {
         siteId: '511179'
