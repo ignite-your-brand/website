@@ -45,19 +45,19 @@ export default Ember.Component.extend({
             Ember.$('.slick-dots li').each(function() {
                 width += Ember.$(this).outerWidth( true );
             });
-            Ember.$('.slick-prev').css('left', ((Ember.$('.slick-dots').innerWidth()-width) / 2) - 100 + 'px')
-            Ember.$('.slick-next').css('right', ((Ember.$('.slick-dots').innerWidth()-width) / 2) - 100 + 'px')
+            Ember.$('.slick-prev').css('left', ((Ember.$('.slick-dots').innerWidth()-width) / 2) - 50 + 'px')
+            Ember.$('.slick-next').css('right', ((Ember.$('.slick-dots').innerWidth()-width) / 2) - 80 + 'px')
             // console.log((Ember.$('.slick-dots').innerWidth()-width) / 2);
             // Ember.$('.slick-dots').prepend(el);
 
-        }, 100);
+        }, 50);
         Ember.$(window).on('resize', function(){
             let width = 0;
             Ember.$('.slick-dots li').each(function() {
                 width += Ember.$(this).outerWidth( true );
             });
-            Ember.$('.slick-prev').css('left', ((Ember.$('.slick-dots').innerWidth()-width) / 2) - 100 + 'px')
-            Ember.$('.slick-next').css('right', ((Ember.$('.slick-dots').innerWidth()-width) / 2) - 100 + 'px')
+            Ember.$('.slick-prev').css('left', ((Ember.$('.slick-dots').innerWidth()-width) / 2) - 50 + 'px')
+            Ember.$('.slick-next').css('right', ((Ember.$('.slick-dots').innerWidth()-width) / 2) - 80 + 'px')
       });
     },
 });
