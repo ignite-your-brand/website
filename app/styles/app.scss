@@ -47,6 +47,10 @@ $desktopSpacer: 8rem;
     @media (min-width: #{map-get($grid-breakpoints, md)}) {
         margin-top: 5rem;
     }
+    .slick-prev, .slick-next {
+        bottom: 35%;
+    }
+
 }
 
 header {
